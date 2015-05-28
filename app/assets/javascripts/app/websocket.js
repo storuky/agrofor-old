@@ -1,7 +1,7 @@
 app.run(['$rootScope', 'Offer', 'Message', 'User', '$timeout', function($rootScope, Offer, Message, User, $timeout) {
-  // init();
+  init();
   function init () {
-    window.dispatcher = new WebSocketRails(window.location.hostname + ":3333/websocket");
+    window.dispatcher = new WebSocketRails(window.location.hostname + "/websocket");
     dispatcher.bind('positions.new_offer', function(data) {
       Offer.new_offers_count = Offer.new_offers_count || 0;
       Offer.new_offers_count += 1;
