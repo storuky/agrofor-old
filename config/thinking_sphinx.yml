@@ -1,19 +1,16 @@
 development:
-  #min_prefix_len: 2
   mem_limit: 128M
   enable_star: 1
   min_infix_len: 2
   morphology: stem_ru
   mysql41: 9312
-  # charset_table: "0..9, a..z, _, @, A..Z->a..z, U+410..U+42F->U+430..U+44F, U+430..U+458"
 
 
 production:
-  #min_prefix_len: 2
+  quiet_deltas: true
   mem_limit: 128M
   enable_star: 1
   min_infix_len: 2
   morphology: stem_ru
-  # charset_table: "0..9, a..z, _, @, A..Z->a..z, U+410..U+42F->U+430..U+44F, U+430..U+458"
   mysql41: 9406
-  quiet_deltas: true
+  bin_path: '/usr/local/bin'
