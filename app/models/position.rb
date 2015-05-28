@@ -233,11 +233,9 @@ class Position < ActiveRecord::Base
     is_price =  case self.trade_type
                   when 1
                     price_etalon_in_currency *= 1+self.price_discount/100
-                    ap price_etalon_in_currency
                     offer.price_etalon.between?(0.0, price_etalon_in_currency)
                   when 2
                     price_etalon_in_currency *= 1-self.price_discount/100
-                    ap price_etalon_in_currency
                     offer.price_etalon.between?(price_etalon_in_currency, INF)
                 end
 
