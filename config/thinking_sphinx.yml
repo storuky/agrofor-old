@@ -13,4 +13,4 @@ production:
   min_infix_len: 2
   morphology: stem_ru
   mysql41: 9406
-  bin_path: '/usr/local/bin'
+  bin_path: '/usr/bin'
