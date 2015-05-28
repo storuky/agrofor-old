@@ -72,7 +72,6 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'devise'
 gem 'gon'
-gem 'rmagick'
 gem 'carrierwave'
 gem "squeel"
 
