@@ -14,3 +14,5 @@ production:
   morphology: stem_ru
   mysql41: 9406
   bin_path: '/usr/bin'
+  searchd_binary_name: '/usr/bin/searchd'
+  indexer_binary_name: '/usr/bin/indexer'

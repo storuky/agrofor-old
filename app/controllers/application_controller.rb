@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
       gon.user = {
         :avatar => {:url => "/default-avatar.png"},
         :favorite_ids => [],
-        :currency => Currency.first,
         :new_messages_count => 0,
         :new_offers_count => 0,
         :currency => Currency.find(1).as_json(:methods => :title),
