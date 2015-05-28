@@ -1,5 +1,5 @@
 set :application, 'agrofor'
-set :repo_url, 'git@gitlab.com:storuky/argoagora_new.git'
+set :repo_url, 'git@github.com:storuky/agrofor.git'
 # set :rvm_type, :user
 
 set :bundle_path, nil
