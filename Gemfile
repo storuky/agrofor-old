@@ -27,7 +27,6 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.0'
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm', '~> 0.1.1'
-  gem 'capistrano3-puma'
 
   gem 'spring'
   gem "awesome_print"
@@ -50,7 +49,6 @@ gem 'faker'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-gem "puma"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
