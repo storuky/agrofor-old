@@ -1,11 +1,11 @@
-require "resque_web"
+# require "resque_web"
 
 Rails.application.routes.draw do
 
-  resque_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
-  constraints resque_web_constraint do
-    mount ResqueWeb::Engine => "/resque_web"
-  end
+  # resque_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
+  # constraints resque_web_constraint do
+  #   mount ResqueWeb::Engine => "/resque_web"
+  # end
 
   get "markers" => "application#markers"
   scope :search do
