@@ -1,1 +1,2 @@
-# Thread.new { EventMachine.run } unless EventMachine.reactor_running? && EventMachine.reactor_thread.alive?
+Thread.new { EM.run } unless EM.reactor_running?
+Thread.pass until EM.reactor_running?
