@@ -63,8 +63,9 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano3-unicorn (0.0.6)
-      capistrano (>= 3.0.0)
+    capistrano3-puma (1.0.0)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -186,6 +187,8 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    puma (2.11.3)
+      rack (>= 1.1, < 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.1)
@@ -371,7 +374,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.0)
   capistrano-rails-console
   capistrano-rvm (~> 0.1.1)
-  capistrano3-unicorn
+  capistrano3-puma
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
