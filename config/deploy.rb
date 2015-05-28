@@ -94,8 +94,8 @@ namespace :deploy do
 
   before :starting,     :check_revision
   # after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after  :finishing,    :restart
+  # after  :finishing,    :cleanup
+  # after  :finishing,    :restart
   after  "deploy", "thinking_sphinx:configure"
   after  "deploy", "thinking_sphinx:rebuild"
 end
