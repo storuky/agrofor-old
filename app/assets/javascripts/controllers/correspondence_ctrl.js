@@ -42,7 +42,7 @@ app.controller('CorrespondencesCtrl', ['$scope', '$http', '$location', '$timeout
         })
       }
     }
-  }, true)
+  })
 
   $scope.deleteFile = function () {
     $http({method: "DELETE", url: "/ajax/correspondences/file", params: {correspondence_id: Message.active_correspondence.id}})

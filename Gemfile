@@ -18,6 +18,7 @@ gem 'unread'
 gem 'geocoder'
 gem 'i18n_data'
 gem 'yandex-translator'
+gem 'puma'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
