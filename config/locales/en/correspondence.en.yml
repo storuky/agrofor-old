@@ -1,0 +1,25 @@
+en:
+  correspondence:
+    notice:
+      not_found: Correspondence is not found
+    status:
+      complete: Make a deal
+      confirm_receipt: Confirm receipt
+      confirm_transfer: Confirm transfer
+      rate_the_deal: Rate the deal
+      reject: Cancel
+      wait_for_agree: Confirmation of the deal is expected
+      wait_for_receipt: Receipt confirmation is expected
+      wait_for_transfer: Transfer confirmation is expected
+      withdraw: Cancel
+    dictionary:
+      attach_file: Attach a file
+      have_not: You do not have any correspondence
+      my_position: My position
+      positions: Positions
+      search: Search
+      search_empty: Correspondence not found
+      send: Send
+      send_by: Send by
+      user_offer: Offer
+      users: Users

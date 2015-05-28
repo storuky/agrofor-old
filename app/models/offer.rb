@@ -1,0 +1,3 @@
+class Offer < Position
+
+end

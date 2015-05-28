@@ -1,0 +1,83 @@
+script#position_show type="text/template"
+  div ng-show="isOffer"
+    h1
+      | #{t 'position.dictionary.offer'}
+  div ng-show="isPosition"
+    h1
+      | #{t 'position.dictionary.position'}
+  .clearfix.position__show
+    form.pure-form.pure-form-aligned
+      fieldset
+        .pure-control-group
+          label Статус:
+          span.position__show__value
+            span ng-class="{green: (form.status=='opened' || form.status=='completed'), yellow: form.status=='in_process', red: form.status=='archive'}"
+              | {{Data.statuses_group[form.status].title}}
+        .pure-control-group
+          label #{t "position.dictionary.date"}:
+          span.position__show__value
+            | {{form.created_at | date:"dd.MM.yyyy"}}
+        .pure-control-group
+          label #{t "position.dictionary.user"}:
+          span.position__show__value
+            a ng-href="/profile/{{form.user.id}}"
+              | {{form.user.name}}
+            .rating ng-hide="mapPage"
+              .rating__red
+                i.flaticon-flash25
+                | {{form.user.negative_count}}
+              .rating__green
+                i.flaticon-flash25
+                | {{form.user.positive_count}}
+        .pure-control-group
+          label #{t "position.dictionary.type"}:
+          span.position__show__value
+            | {{Data.trade_types_group[form.trade_type].title}}
+        .pure-control-group
+          label #{t "position.dictionary.category"}:
+          span.position__show__value
+            a
+              | {{Data.options[form.option_id].category.title_locale}}
+            |  /  
+            a
+              | {{Data.options[form.option_id].title_locale}}
+        .pure-control-group
+          label #{t "position.dictionary.title"}:
+          span.position__show__value
+            | {{form.title}}
+        .pure-control-group
+          label #{t "position.dictionary.region"}:
+          span.position__show__value
+            | {{form.address}}
+        .pure-control-group
+          label #{t "position.dictionary.weight"}:
+          span.position__show__value
+            | {{form.weight}} {{Data.dimensions_group[form.weight_dimension_id].title}}
+        .pure-control-group ng-show="form.weight_min!=0"
+          label #{t "position.dictionary.weight_min"}:
+          span.position__show__value
+            | {{form.weight_min}} {{Data.dimensions_group[form.weight_dimension_id].title}}
+        .pure-control-group
+          label #{t "position.dictionary.price"}:
+          span.position__show__value
+            | {{form.price}} {{Data.currency_group[form.currency_id].title}}/{{Data.dimensions_group[form.weight_dimension_id].title}}
+            p.green ng-show="form.price_in_currency" #{t 'position.dictionary.current_currency'} {{form.price_in_currency | number:2}} {{User.data.currency.title}}/{{Data.dimensions_group[form.weight_dimension_id].title}}
+        .pure-control-group ng-show="form.description"
+          label #{t "position.dictionary.description"}:
+          span.position__show__value
+            | {{form.description}}
+    .position__show__comment ng-show="form.status=='completed'"
+      div ng-show="form.reputation"
+        .reputations__item class="{{form.reputation.reputation_type}}"
+          .reputations__item__title.clearfix
+            span.pull-left #{t "position.dictionary.comment_from"} {{form.deal_with[0].user.name}}
+            / {{Data.reputation_type_group[form.reputation.reputation_type].title}}
+          .reputations__item__body
+            pre
+              | {{form.reputation.description}}
+      .position__show__comment__textarea ng-show="!form.reputation && User.data.id==form.deal_with[0].user_id"
+        label #{t "position.dictionary.comment"}:
+        textarea ng-model="comment.description" rows="5" style="margin-bottom: 5px;"
+        .clearfix
+          radio.pull-left style="margin-top: 2px;" options="Data.reputation_type" ng-model="comment.reputation_type"
+          a.btn.btn-primary.pull-right ng-click="saveReputation()" #{t "position.dictionary.send_comment"}

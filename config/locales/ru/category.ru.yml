@@ -1,0 +1,32 @@
+ru:
+  category:
+    i_am_not_found: Не нашли подходящую категорию?
+    plur:
+      - категория
+      - категории
+      - категорий
+    items:
+      "berries": "Ягоды"
+      "bobs": "Бобовые культуры"
+      "corn": "Кукуруза"
+      "dairy": "Молочные продукты"
+      "dried fruit": "Сухофрукты"
+      "eggs": "Яйца"
+      "feed for animals": "Корма для животных"
+      "fertilizers and chemicals": "Удобрения и химикаты"
+      "fish": "Рыба"
+      "flour": "Мука"
+      "fruits": "Фрукты"
+      "herbs": "Травы(зелень)"
+      "honey": "Мёд"
+      "meat": "Мясо"
+      "mushrooms": "Грибы"
+      "nuts": "Орехи"
+      "oilseeds": "Масличные культуры"
+      "seafood": "Морепродукты"
+      "seed ang seedlings": "Семена и саженцы"
+      "sugar": "Сахар"
+      "vegetable oil": "Растительное масло"
+      "vegetables": "Овощи"
+      "wheat": "Зерновые культуры"
+      "wood": "Пиломатериалы"

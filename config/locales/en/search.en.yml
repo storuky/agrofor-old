@@ -1,0 +1,13 @@
+en:
+  search:
+    dictionary:
+      advanced_search: Extended search
+      by_list: List
+      by_map: Мap
+      category_not_checked: Category is not chosen
+      create_position: New position
+      have_not_opened_position: You have no opened positions
+      reset: Reset
+      search: Search
+      search_placeholder: "For example: buy wheat"
+      suit_for_me: Suitable positions

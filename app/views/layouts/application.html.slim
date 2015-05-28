@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+html ng-app="app"
+  head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag    'application'
+    = csrf_meta_tags
+    script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'
+    link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet'
+    script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'
+    link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet'
+    link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet'
+    base href="/"
+    title Агроагора
+  body ng-class="{overflow_x: $root.animInProgress}"
+    .overlay ng-show="$root.blurContent"
+      = render "modals/confirm"
+      message-modal is-show="Message.showMessageModal" user="Message.user"
+      categories is-show="$root.isShowCategoryModal"
+      pick-address draggable="$root.pickAddress.draggable" is-show="$root.pickAddress.isShow" form="$root.pickAddress.form"
+      = render "modals/sign"
+    .side-bar
+      .side-bar__scroll
+        .side-bar__min-height
+          .side-bar__header
+            span.side-bar__sign.ng-cloak
+              a.side-bar__sign__out ng-show='User.data.name' ng-click="$root.sign_out()"
+              a.side-bar__sign__in.icon-login ng-show='!User.data.name' ng-click="$root.showSign=true;"
+            a.side-bar__search href="/" ng-hide="$root.searchPage"
+              i.icon-search1
+            a.side-bar__avatar
+              img ng-src="{{User.data.avatar.url}}"
+            .side-bar__fio.ng-cloak
+              | {{User.data.name || "Гость"}}
+            .side-bar__address.ng-cloak
+              | {{User.data.city || '#{t "user.location"}'}}
+          .side-bar__new-position
+            a.btn.btn-success.btn-new_position href="/positions/new" ng-signin=""
+              = t "title.create_position"
+          ul.side-bar__nav
+            li.side-bar__nav__item
+              a.side-bar__nav__link href="/positions?type=positions&status=opened" ng-click="Offer.resetCounter()" ng-signin=""
+                = t "title.my_positions"
+                strong.ng-cloak ng-show="Offer.new_offers_count>0"
+                  | +{{Offer.new_offers_count}}
+            li.side-bar__nav__item
+              a.side-bar__nav__link href="/correspondences?type=positions" ng-signin=""
+                = t "title.messages"
+                strong.ng-cloak ng-show="Message.new_messages_count"
+                  | +{{Message.new_messages_count}}
+            li.side-bar__nav__item
+              a.side-bar__nav__link ng-href="/profile/{{User.data.id}}" ng-signin=""
+                = t "title.profile"
+            li.side-bar__nav__item
+              a.side-bar__nav__link href="/settings" ng-signin=""
+                = t "title.settings"
+            li.side-bar__nav__item
+              a.side-bar__nav__link href="/help"
+                = t "title.help"
+          .side-bar__footer
+            div
+              a href="" = t "terms"
+            div © #{t "agrofor"}, 2015
+
+    .content ng-class="{blur: $root.blurContent}"
+      ng-view class="slide fade" ng-class="{positions_page: $root.positions_page}"
+
+    .background
+    = render "modals/categories"
+    = render "application/directives"
+    = render "application/messages"
+    = render "modals/pick_address"
+    = render "modals/new_message"
+    = render "correspondences/position"
+    = render "positions/info"
+    = Gon::Base.render_data({})
+    script src="http://cdn.peerjs.com/0.3/peer.js"
+
+    = javascript_include_tag 'application'

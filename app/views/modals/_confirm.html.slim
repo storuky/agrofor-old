@@ -1,0 +1,15 @@
+.md.md__center.confirm-modal ng-class="{'md-show': Action.confirm_show}"
+  .md__content
+    .md__head
+      .md__head__title
+        = t "confirm.confirm_action"
+      .md__close ng-click="Action.confirm_show = false"
+        | &times;
+    .confirm-modal__content
+      .confirm-modal__content__main
+        | {{Action.confirm_message.main}}
+      .confirm-modal__content__description
+        | {{Action.confirm_message.description}}
+    .confirm-modal__footer
+      a.text-danger#confirm_no = t "confirm.confirm_no"
+      a.btn.btn-primary#confirm_yes = t "confirm.confirm_yes"

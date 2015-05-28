@@ -1,0 +1,25 @@
+ru:
+  correspondence:
+    notice:
+      not_found: Переписка не найдена
+    status:
+      complete: Заключить сделку
+      confirm_receipt: Подтвердить получение
+      confirm_transfer: Подтвердить передачу
+      rate_the_deal: Оценить сделку
+      reject: Отказать
+      wait_for_agree: Ожидается подтверждение сделки
+      wait_for_receipt: Ожидается подтверждение получения
+      wait_for_transfer: Ожидается подтверждение передачи
+      withdraw: Отозвать
+    dictionary:
+      attach_file: Прикрепить файл
+      have_not: У вас нет ни одной переписки
+      my_position: Моя позиция
+      positions: Позиции
+      search: Поиск
+      search_empty: Не найдено ни одной переписки
+      send: Отправить
+      send_by: Отправка по
+      user_offer: Предложение пользователя
+      users: Пользователи

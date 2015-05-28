@@ -1,0 +1,6 @@
+div ng-controller="MapCtrl"
+  .map-wrapper
+    #map ng-class="{show: mapReady, blur: isShowPosition}" ng-click="setSearchPopup('')"
+  spinner.map-spinner ng-show="!mapReady"
+
+  = render "modals/map_position"

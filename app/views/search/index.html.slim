@@ -1,0 +1,85 @@
+.search
+  .search__input
+    .search__input__preloader
+    i.search__input__icon.icon-search1
+    dimension.search__control ng-model="Search.form.query" ng-model-dimension="Search.view" options="Data.search_view" placeholder="'#{t "search.dictionary.search_placeholder"}'"
+  .search__settings
+    .search__settings__item
+      .search__settings__item__active ng-show="Search.suitPositionsCheckedCount"
+        | {{Search.suitPositionsCheckedCount}}
+      .search__settings__item__head ng-click="setSearchPopup('suit')"
+        span = t "search.dictionary.suit_for_me"
+        i.icon-chevron-down.search__settings__item__caret
+      .search__settings__item__body
+        .search__popup.search__popup__suit.ng-cloak scroll="" rebuld="{{Search.suitPositions.length}}" ng-show="activeSearchParams == 'suit'"
+          .search__popup__suit__noresult.ng-cloak ng-hide="Search.suitPositions.length"
+            .search__popup__suit__noresult__title  = t "search.dictionary.have_not_opened_position"
+            a.btn.btn-primary.btn-new_position href="/positions/new" = t "search.dictionary.create_position"
+          ul.search__popup__suit__list ng-show="Search.suitPositions.length"
+            li.search__popup__suit__item ng-repeat="pos in Search.suitPositions"
+              label.clearfix
+                .search__popup__suit__checker
+                  input type="checkbox" ng-model="Search.suitPositionsChecked[pos.id]"
+                  .checker
+                  .search__popup__suit__bg
+                .search__popup__suit__text ng-class="{active:Search.suitPositionsChecked[pos.id]}"
+                  div
+                    b
+                      | {{pos.created_at | date: "dd.MM.yyyy"}}
+                  div
+                    b
+                      | {{pos.title}}
+                  div
+                    | {{Data.trade_types_group[pos.trade_type].title}} {{Data.options[pos.option_id].title_locale}}
+                  div
+                    | {{Position.buildInfo(pos)}}
+    .search__settings__item
+      .search__settings__item__head ng-click="setSearchPopup('settings')"
+        span = t "search.dictionary.advanced_search"
+        i.icon-chevron-down.search__settings__item__caret
+      .search__settings__item__body
+        .search__popup.search__popup__settings.ng-cloak ng-show="activeSearchParams == 'settings'"
+          .search__popup__row
+            label #{t "position.dictionary.i_want"}:
+            #trade_type
+              radio allow-null="true" options="Data.trade_types" ng-model="Search.form.trade_type"
+          .search__popup__row
+            label #{t "position.dictionary.region"}:
+            #address
+              input type="text"
+          .search__popup__row
+            label #{t "position.dictionary.category"}:
+            #category
+              ng-select placeholder="Search.form.option_id_title || '#{t "position.dictionary.category_placeholder"}'" ng-click="$root.showCategoryModal(Search.form, 'option_id', true)" ng-model="Search.form.option_id" category="true" multiple="true"
+          .search__popup__row.clearfix
+            label.pure-label #{t "position.dictionary.weight"}:
+            .pull-left#weight
+              span
+                dimension ng-model="Search.form.weight_from" ng-model-dimension="Search.form.weight_dimension_id" options="Data.dimensions"
+            .form-separator
+            .pull-right#weight
+                span
+                  dimension ng-model="Search.form.weight_to" ng-model-dimension="Search.form.weight_dimension_id" options="Data.dimensions" disabled="true"
+          .search__popup__row.clearfix
+            label.pure-label #{t "position.dictionary.price"}:
+            .pull-left#price
+              span
+                dimension ng-model="Search.form.price_from" ng-model-dimension="Search.form.currency_id" options="Data.currency" postfix="'/'+Data.dimensions_group[Search.form.weight_dimension_id].title"
+            .form-separator
+            .pull-right#price
+                span
+                  dimension ng-model="Search.form.price_to" ng-model-dimension="Search.form.currency_id" options="Data.currency" postfix="'/'+Data.dimensions_group[Search.form.weight_dimension_id].title" disabled="true"
+          .search__popup__row.clearfix
+            a.btn.btn-primary.btn-lg.pull-left style="width: 118px" ng-click="Search.find_by_params()" #{t "search.dictionary.search"}
+            a.btn.text-danger.btn-lg.pull-right style="width: 118px; padding: 8px 0; text-align: center"  ng-click="Search.reset()" #{t "search.dictionary.reset"}
+
+          / .search__popup__settings__info style="display:none"
+            b Внимание!
+            span &nbsp; У вас имеются настройки фильтрации "
+            a Подходящие мне
+            span ". Поиск будет осуществлен по уже найденным позициям. Чтобы начать поиск с нуля, пожалуйста, 
+            
+            a.text-danger &nbsp;сбросьте данные настройки
+            span.
+
+ng-include src="ngInclude"

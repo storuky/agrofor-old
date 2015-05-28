@@ -1,0 +1,153 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-34os6e');
+	src:url('fonts/icomoon.eot?#iefix-34os6e') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-34os6e') format('woff'),
+		url('fonts/icomoon.ttf?-34os6e') format('truetype'),
+		url('fonts/icomoon.svg?-34os6e#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clock:before {
+	content: "\e609";
+}
+
+.icon-agreement:before {
+	content: "\e60c";
+}
+
+.icon-phone:before {
+	content: "\e608";
+}
+
+.icon-clip25:before {
+	content: "\e607";
+}
+
+.icon-award:before {
+	content: "\e605";
+}
+
+.icon-award-fill:before {
+	content: "\e606";
+}
+
+.icon-sign_in:before {
+	content: "\e604";
+}
+
+.icon-sign_out:before {
+	content: "\e602";
+}
+
+.icon-marker:before {
+	content: "\e603";
+}
+
+.icon-flag:before {
+	content: "\e60a";
+}
+
+.icon-search:before {
+	content: "\e600";
+}
+
+.icon-earth:before {
+	content: "\e601";
+}
+
+.icon-folder-upload:before {
+	content: "\e60b";
+}
+
+.icon-star-fill:before {
+	content: "\e60f";
+}
+
+.icon-star:before {
+	content: "\e610";
+}
+
+.icon-trash:before {
+	content: "\e611";
+}
+
+.icon-trash-fill:before {
+	content: "\e612";
+}
+
+.icon-eye:before {
+	content: "\e615";
+}
+
+.icon-eye-hidden:before {
+	content: "\e616";
+}
+
+.icon-printer:before {
+	content: "\e617";
+}
+
+.icon-printer-fill:before {
+	content: "\e618";
+}
+
+.icon-back:before {
+	content: "\e620";
+}
+
+.icon-calendar:before {
+	content: "\e621";
+}
+
+.icon-check:before {
+	content: "\e622";
+}
+
+.icon-chevron-down:before {
+	content: "\e623";
+}
+
+.icon-chevron-left:before {
+	content: "\e624";
+}
+
+.icon-chevron-right:before {
+	content: "\e625";
+}
+
+.icon-chevron-up:before {
+	content: "\e626";
+}
+
+.icon-close:before {
+	content: "\e627";
+}
+
+.icon-menu:before {
+	content: "\e629";
+}
+
+.icon-next:before {
+	content: "\e62a";
+}
+
+.icon-refresh:before {
+	content: "\e62b";
+}
+

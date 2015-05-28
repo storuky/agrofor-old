@@ -1,0 +1,149 @@
+en:
+  title:
+    create_position: "New position"
+    help: "Help"
+    list: "List"
+    messages: "Messages"
+    my_offers: "My offers"
+    my_positions: "My postions"
+    profile: "Profile"
+    reputation: "Reputation"
+    settings: "Settings"
+
+  weight:
+    ft3: ft³
+    kg: kg
+    liter: liter
+    m3: m³
+    tonn: tonn
+
+  currency:
+    AUD: "AUD"
+    CAD: "CAD"
+    CNY: "CNY"
+    EUR: "€"
+    GBP: "£"
+    JPY: "¥"
+    NZD: "NZD"
+    RUB: "RUB"
+    USD: "$"
+
+  category:
+    checked:
+      error: No category is selected 
+
+  user:
+    notice:
+      add_phone: Add phone
+      enter_address: Enter your address
+      enter_email: Enter your email
+      enter_name: Enter your full name
+      not_auth: You are not authorized
+      not_found: User is not found
+      not_permit: Action is not allowed
+    location: Your location
+
+  file:
+    remove:
+      error: Error in file delete
+      sucess: File is deleted successfully
+    upload:
+      error: Error in file loading
+      success: File is successfully uploaded
+    format:
+      error: Incorrect format
+
+  terms: Terms and conditions
+  agrofor: Agrofor
+
+  confirm:
+    confirm_action: "Confirm this action"
+    confirm_no: "Cancel"
+    confirm_yes: "Confirm"
+    close_position:
+      main: "Are you sure that you want to close this position?"
+      description: This position can be restored in the future. However all the offers will be removed.
+    restore_position:
+      main: "Are you sure that you want to restore this position?"
+      description: This position will be restored in the market with the current parameters. The date of creation will be updated currently.
+    withdraw_position:
+      main: "Are you sure that you want to withdraw this position?"
+      description: ny moment you can send your offer again to the current user.
+    agree_position:
+      main: Have you discussed all the terms of transaction in a correspondence?
+      description: "Mind your attention that the confirmation of transaction can not be canceled"
+    complete_position:
+      main: Do you really confirm receiving goods?
+      description: "After confirmation, you will be able to leave a comment for further references of this user. It will determine the level of his reputation."
+    reject_position:
+      main: Do you really cancel the deal?
+      description: "Your offer wil be delayed and you will be informed in the correspondence."
+
+  pick_address:
+    address: Address
+    apply: Apply
+    city: City
+    title: Address choice
+
+  sign:
+    email: Email
+    fio: Full name
+    forgot_password: Have you forgotten your password?
+    password: password
+    in:
+      have_not_account: Haven't got any account?
+      registration_text: "Sign up and discover a new dynamically developing market!"
+      registration_title: "Registration"
+      text: Fill in your account details
+      title: Sign in
+    up:
+      have_account: Have you got an account?
+      login_text: Sign in using existing account
+      login_title: "Sign in"
+      text: Specify the necessary basic information
+      title: Registration
+  dictionary:
+    min: min.
+    and: and
+
+  settings:
+    localization: Localization
+    language: Language
+    currency: Currency
+    new_offer_notice: Notification about new offers
+    by_email: By Email
+    by_sms: By SMS
+    save: Save
+
+  activerecord:
+    errors: 
+      models:
+        position: 
+          attributes:
+            address:
+              blank: Choice address
+            address_lat:
+              not_a_number: Wrong lat-coordinate
+            address_lon:
+              not_a_number: Wrong lon-coordinate
+            trade_type:
+              inclusion: Specify type of position
+            category_id:
+              not_a_number: Select category
+            option_id:
+              not_a_number: Select category
+            price:
+              not_a_number: Price must be a number
+            title:
+              blank: Enter the name of the position
+              too_long: The name can not be longer than 50 characters
+            weight:
+              not_a_number: Weight (volume) must be a number
+              greater_than: The weight must be greater than zero
+            weight_min:
+              not_a_number: Min. weight must be a number
+              less_then_weight: Must be less than the weight
+            weight_type:
+              inclusion: Dimension is incorrect!
+            delivery_type:
+              inclusion: Type is incorrect!

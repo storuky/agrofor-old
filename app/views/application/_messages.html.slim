@@ -1,0 +1,37 @@
+script#message_agree type="text/template"
+  .correspondences__messages__item__body.green
+    pre
+      i.icon-check.left-icon
+      .right-text
+        = t("message.position.agree").html_safe
+
+script#message_new_offer type="text/template"
+  .correspondences__messages__item__body.green
+    pre = t("message.position.new_offer").html_safe
+
+script#message_reject type="text/template"
+  .correspondences__messages__item__body.red
+    i.icon-close.left-icon
+    .right-text
+      pre = t("message.position.rejected").html_safe
+
+script#message_withdraw type="text/template"
+  .correspondences__messages__item__body.red
+    i.icon-close.left-icon
+    .right-text
+      pre = t("message.position.withdraw").html_safe
+
+script#message_complete type="text/template"
+  .correspondences__messages__item__body.green
+    i.icon-agreement.left-icon
+    .right-text
+      pre = t("message.position.completed").html_safe
+
+script#message_simple type="text/template"
+  .correspondences__messages__item__body
+    pre
+      | {{::message.body}}
+    .correspondences__messages__item__file ng-show="message.document"
+      i.icon-clip25
+      a ng-href="{{message.document.document.url}}" target="_blank"
+        | {{::message.document.file_name}}

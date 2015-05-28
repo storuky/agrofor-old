@@ -1,0 +1,14 @@
+script#select type="text/ng-template"
+  span.select
+    span.select__checked ng-class="{active: isShow}"
+      span.select__checked__title
+        | {{title || placeholder}}
+      i.select__caret.icon-chevron-down
+
+    .select__container ng-show="isShow && options && options.length"
+      .select__list__wrapper
+        ul.select__list
+          li.select__category.select__item ng-class="{active: isActive(category.id)}" ng-repeat="category in options | filter:search | orderBy:'options.length'" ng-click="checkModel(category.id)"
+            span ng-class="{select__category__title: category.options.length}"
+              | {{::category.title_locale || category.title}}
+            i.icon-close ng-show="!isActive(category.id) && onDelete" ng-click="deleteCategory(category.id, $index)"

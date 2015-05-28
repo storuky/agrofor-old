@@ -1,0 +1,2 @@
+$redisCorrespondencesFile = Redis.new(:host => "127.0.0.1", :port => "6379", :driver => :hiredis, :db => 1)
+$redisCurrency = Redis.new(:host => "127.0.0.1", :port => "6379", :driver => :hiredis, :db => 2)

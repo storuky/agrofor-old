@@ -1,0 +1,108 @@
+.correspondences class="#{t("correspondence.dictionary.search")}"
+  .correspondences__left
+    .correspondences__header
+      i.icon-search
+      input type="text" placeholder="#{t("correspondence.dictionary.search")}" ng-model="correspondence_search.user.name"
+    .correspondences__by.clearfix
+      radio ng-model="Message.correspondence_type" options="[{title: '#{t 'correspondence.dictionary.positions'}', id: 'positions'}, {title: '#{t 'correspondence.dictionary.users'}', id: 'users'}]"
+
+    .correspondences__items
+      .no_result ng-show="Message.correspondences.length==0"
+        | #{t "correspondence.dictionary.have_not"}!
+      .no_result ng-show="correspondences_count.length==0 && Message.correspondences.length"
+        | #{t "dictionary.dictionary.search_empty"}
+      .correspondences__item.clearfix ng-repeat="correspondence in correspondences_count=(Message.correspondences | filter:correspondence_search | orderBy:'updated_at':true)" ng-class="{active: correspondence.id==Message.active_correspondence.id}" ng-click="Message.active_correspondence=correspondence"
+        strong ng-show="Message.unreadable_count[correspondence.id]"
+          | +{{Message.unreadable_count[correspondence.id]}}
+        .correspondences__item__photo
+          img ng-src="{{correspondence.user.avatar.url}}"
+        .correspondences__item__name.ng-cloak ng-show="Message.correspondence_type=='positions'"
+          div
+            | {{Data.trade_types_group[correspondence.positions[0].trade_type].plur}} «{{Data.options[correspondence.positions[0].option_id].title_locale}}»
+          .correspondences__item__description ng-if="correspondence.positions.length"
+            | {{Position.buildInfo(correspondence.positions[0])}}
+        .correspondences__item__name ng-show="Message.correspondence_type=='users'"
+          | {{correspondence.user.name}}
+  .correspondences__messages ng-show="Message.active_correspondence"
+    .correspondences__messages__header
+      .clearfix
+        .pull-left
+          a.correspondences__messages__header__avatar ng-href="/profile/{{Message.active_correspondence.user.id}}"
+            img ng-src="{{Message.active_correspondence.user.avatar.url}}"
+          .correspondences__messages__header__info
+            div
+              | {{Message.active_correspondence.user.name}}
+            .correspondences__messages__header__additional ng-if="Message.active_correspondence.positions.length"
+              | {{Data.trade_types_group[Message.active_correspondence.positions[0].trade_type].plur}} «{{Data.options[Message.active_correspondence.positions[0].option_id].title_locale}}»
+            a.correspondences__messages__header__additional ng-hide="Message.active_correspondence.positions.length" ng-href="mailto:{{User.data.email}}"
+              | {{User.data.email}}
+    .correspondences__positions ng-show="Message.offer"
+      correspondence-position is-show="isShowMyPosition" type="'my'" form="Message.position"
+      correspondence-position.offer is-show="isShowOffer" form="Message.offer"
+      .clearfix
+        .pull-left
+          | #{t 'correspondence.dictionary.my_position'}:
+          | &nbsp;
+          span.correspondences__popup__wrapper ng-class="{triangle: isShowMyPosition}"
+            a ng-click="isShowMyPosition=!isShowMyPosition;$event.stopPropagation()" href=""
+              | #
+              | {{Message.position.id}}
+          | #{t 'correspondence.dictionary.user_offer'}: 
+          span.correspondences__popup__wrapper ng-class="{triangle: isShowOffer}"
+            a ng-click="isShowOffer=!isShowOffer;$event.stopPropagation()" href=""
+              | #
+              | {{Message.offer.id}}
+        .correspondences__positions__action.pull-right
+          a.btn.btn-danger.btn-sm ng-show="(Message.active_correspondence.status=='new_offer' && Message.active_correspondence.offerer_id!=User.data.id) || (Message.active_correspondence.status=='position_agree' && Message.active_correspondence.offerer_id==User.data.id)" ng-click="Position.reject(Message.position.id, Message.offer.id)"
+            i.icon-close
+            | #{t 'correspondence.status.reject'}
+          a.btn.btn-danger.btn-sm ng-show="(Message.active_correspondence.status=='new_offer' && Message.active_correspondence.offerer_id==User.data.id)" ng-click="Position.withdraw(Message.position.id, Message.offer.id)"
+            i.icon-close
+            | #{t 'correspondence.status.withdraw'}
+          a.btn.btn-success.btn-sm ng-show="(Message.active_correspondence.status=='new_offer' && Message.active_correspondence.offerer_id!=User.data.id) || (Message.active_correspondence.status=='position_agree' && Message.active_correspondence.offerer_id==User.data.id)" ng-click="Position.agree(Message.position.id, Message.offer.id)"
+            i.icon-check
+            | #{t 'correspondence.status.complete'}
+          a.btn.btn-success.btn-sm ng-show="(Message.active_correspondence.status=='offer_agree' && Message.position.trade_type == 2) || (Message.active_correspondence.status=='position_complete' && Message.position.trade_type == 1)" ng-click="Position.complete(Message.position.id, Message.offer.id)"
+            i.icon-agreement
+            span ng-show="Message.position.trade_type == 1" #{t 'correspondence.status.confirm_receipt'}
+            span ng-show="Message.position.trade_type == 2" #{t 'correspondence.status.confirm_transfer'}
+          span.green ng-show="Message.active_correspondence.status=='position_agree' && Message.active_correspondence.offerer_id!=User.data.id"
+            | #{t 'correspondence.status.wait_for_agree'}
+          span.green ng-show="Message.active_correspondence.status=='offer_agree' && Message.position.trade_type == 1"
+            | #{t 'correspondence.status.wait_for_transfer'}
+          span.green ng-show="Message.active_correspondence.status=='position_complete' && Message.position.trade_type == 2"
+            | #{t 'correspondence.status.wait_for_receipt'}
+          a.btn.btn-yellow.btn-sm ng-show="Message.active_correspondence.status=='offer_complete'" ng-href="/positions/{{Message.offer.id}}?type=rate"
+            i.icon-star-fill
+            | #{t 'correspondence.status.rate_the_deal'}
+
+    .correspondences__messages__items
+      / spinner.correspondences__spinner ng-show="inProgress"
+      .correspondences__messages__item ng-repeat="message in Message.messages | orderBy:'id'" ng-class="{my_message: message.sender_id == User.data.id}"
+        .correspondences__messages__item__avatar ng-show="message.sender_id != User.data.id"
+          img ng-src="{{message.sender.avatar.url}}"
+        message type="simple" ng-if="message.body"
+        message type="agree" ng-if="message.message_type=='agree'"
+        message type="new_offer" ng-if="message.message_type=='new_offer'"
+        message type="reject" ng-if="message.message_type=='reject'"
+        message type="withdraw" ng-if="message.message_type=='withdraw'"
+        message type="complete" ng-if="message.message_type=='complete'"
+        .correspondences__messages__item__date
+          | {{::message.created_at | date: 'HH:mm:ss'}}
+    .correspondences__messages__footer
+      textarea.correspondences__textarea ng-model="Message.body"
+      .clearfix.correspondences__messages__footer__control
+        .pull-left
+          label.attach-file__wrapper
+            input#correspondence_file type="file" onchange="attach_name.innerHTML = this.value.split(/\/|\\/).pop()" fileread="file"
+            a.btn.btn-primary.attach-file
+              i.icon-clip25
+            span#attach_name
+              | {{Message.attach_title || '#{t 'correspondence.dictionary.attach_file'}'}}
+            spinner-small.correspondences__messages__file-progress ng-show="fileInProgress"
+          span.dettach-file ng-show="Message.attach_title" ng-click="deleteFile()"
+            i.icon-close
+        .pull-right
+          span.send_by #{t "correspondence.dictionary.send_by"} Ctrl+Enter
+          a.btn.btn-primary ng-click="Message.send()" #{t "correspondence.dictionary.send"}
+

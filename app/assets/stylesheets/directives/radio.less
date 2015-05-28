@@ -1,0 +1,40 @@
+@import "variables.less";
+.radio {
+  display: inline-block;
+
+  &__btn {
+    border: 1px solid @input_border;
+    height: 36px;
+    padding: 1px 23px;
+    display: inline-block;
+    line-height: 31px;
+    cursor: pointer;
+    text-align: center;
+    color: black !important;
+
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    &:not(:first-child) {
+      border-left: none;
+    }
+
+    &.active {
+      border-bottom: 2px solid @blue;
+      background: @input_background;
+
+      &.red {
+        border-bottom-color: @red;
+      }
+
+      &.green {
+        border-bottom-color: @green;
+      }
+    }
+  }
+}

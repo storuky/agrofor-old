@@ -1,0 +1,88 @@
+.page ng-controller="PositionFormCtrl"
+  form.position__form.pure-form.pure-form-aligned
+    fieldset
+      .pure-control-group
+        label
+        span
+          h1
+            | {{::isEdit ? '#{t 'position.dictionary.edit_position'}' : '#{t 'position.dictionary.create_position'}'}}
+      .pure-control-group
+        label.pure-label #{t 'position.dictionary.date'}:
+        span#date
+          | {{form.updated_at | date:"dd.MM.yyyy"}}
+      .pure-control-group.clearfix
+        label.pure-label #{t 'position.dictionary.template'}:
+        span#is_template
+          ng-select options="Data.templates" ng-model="template" placeholder="'#{t 'position.dictionary.template_placeholder'}'" on-delete="deleteTemplate"
+      .pure-control-group
+        label.pure-label #{t 'position.dictionary.i_want'}:
+        radio#trade_type options="Data.trade_types" ng-model="form.trade_type"
+      .pure-control-group
+        label.pure-label #{t 'position.dictionary.title'}:
+        span#title
+          input.position__title type="text" ng-model="form.title"
+      .pure-control-group
+        label.pure-label #{t 'position.dictionary.address'}:
+        span#address
+          a ng-click="showPickAddress()"
+            i.icon.icon-earth
+            span.dotted
+              | {{form.city || "#{t 'position.dictionary.address_placeholder'}"}}
+      .pure-control-group.clearfix
+        label.pure-label #{t 'position.dictionary.category'}:
+        span#option_id
+          ng-select placeholder="form.option_id_title || '#{t 'position.dictionary.category_placeholder'}'" ng-click="$root.showCategoryModal(form, 'option_id', false)" ng-model="form.option_id" category="true"
+      .pure-control-group.clearfix
+        .pull-left
+          label.pure-label #{t 'position.dictionary.weight'}:
+          span#weight
+            dimension ng-model="form.weight" ng-model-dimension="form.weight_dimension_id" options="Data.dimensions"
+        .pull-left
+          label.pure-label #{t 'position.dictionary.weight_min'}:
+          span#weight_min
+            dimension ng-model="form.weight_min" ng-model-dimension="form.weight_dimension_id" options="Data.dimensions" disabled="true"
+
+      .pure-control-group.clearfix
+        .pull-left
+          label.pure-label #{t 'position.dictionary.price'}:
+          span#price
+            dimension ng-model="form.price" ng-model-dimension="form.currency_id" options="Data.currency" postfix="'/'+Data.dimensions_group[form.weight_dimension_id].title"
+        .pull-left
+          label.pure-label #{t 'position.dictionary.discount'}:
+          span#price_discount
+            dimension ng-model="form.price_discount" prefix="'%'" disabled="true"
+      .pure-control-group
+        label.pure-label #{t 'position.dictionary.description'}:
+        span#description
+          textarea ng-model="form.description" cols="10" rows="6"
+      .pure-control-group
+        label.pure-label #{t 'position.dictionary.template_save'}:
+        span
+          span#template
+            label.checkbox
+              input type="checkbox" ng-model="form.is_template"
+              .checker
+            input type="text" ng-model="form.template_name" ng-disabled="!form.is_template" placeholder="{{form.is_template ? 'Введите название шаблона' : ''}}"
+      .pure-control-group
+        label
+        span ng-hide="form.status == 'archive'"
+          a.btn.btn-primary.btn-lg ng-hide="isEdit" ng-click="savePosition()" #{t 'position.dictionary.create'}
+          a.btn.btn-primary.btn-lg ng-show="isEdit" ng-click="savePosition()" #{t 'position.dictionary.save'}
+          a.text-danger.text-normal.text-lg ng-show="isEdit" ng-click="closePosition()" #{t 'position.dictionary.close_position'}
+        span ng-show="form.status == 'archive' && !form.deal_with_id"
+          a.btn.btn-primary.btn-lg ng-click="restorePosition()" #{t 'position.dictionary.restore_position'}
+
+  .pull-left
+    .position__upload
+      input#upload type="file" fileread="photos_field" multiple=""
+      label.position__upload__add for="upload"
+        i.icon-folder-upload
+        i.icon-folder-upload-fill
+        .position__upload__add__text = t "position.dictionary.upload_photo"
+      .position__upload__list.dcbox scroll="" rebuild="{{form.photos.length}}"
+        .position__upload__item ng-repeat="photo in form.photos"
+          a ng-href="{{photo.photo.url}}"
+            .position__upload__item__destroy ng-click="deletePhoto(photo.id, $index, $event)"
+              i.icon-trash
+            img ng-src="{{photo.photo.thumb.url}}" width="150"
+

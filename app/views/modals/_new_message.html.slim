@@ -1,0 +1,25 @@
+script#new_message_tmpl type="text/ng-template"
+  .md.md__center.new-message-modal ng-class="{'md-show': isShow}"
+    .md__content
+      .md__head
+        .md__head__title
+          = t "profile.dictionary.new_message"
+        .md__close ng-click="isShow = false"
+          | &times;
+      .new-message-modal__content
+        a.correspondences__messages__header__avatar
+          img ng-src="{{user.avatar.url}}"
+        .correspondences__messages__header__info
+          div
+            | {{user.name}}
+          a.correspondences__messages__header__additional ng-href="mailto:{{user.email}}"
+            | {{user.email}}
+        div style="margin-top: 10px"
+          label #{t "profile.dictionary.message"}:
+          textarea ng-model="msg"
+      .new-message-modal__footer.clearfix
+        .pull-right
+          a.btn.btn-primary ng-click="startConvertation(msg, user.id)"
+            | #{t "profile.dictionary.start_correspondence"}
+
+

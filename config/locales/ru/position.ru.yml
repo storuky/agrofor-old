@@ -1,0 +1,104 @@
+ru:
+  position:
+    plur:
+      - позиция
+      - позиции
+      - позиций
+    notice:
+      closed: Позиция успешно закрыта
+      created: Позиция успешно создана
+      deleted: Позиция успешно удалена
+      updated: Позиция успешно изменена
+      saved:
+        error: Ошибка при сохранении позиции
+      agree: Участие в сделке подтверждено
+      already_in_process: Позиция находится в процессе с другим участником
+      completed: Отправка товара подтверждена
+      empty_reputation: Комментарий не может быть пустым
+      empty_reputation_type: "Сделка должна быть помечена, как положительная или отрицательная"
+      has_comment: "У позиции уже есть отзыв"
+      not_found: Позиция не найдена
+      rejected: Предложение отклонено
+      restored: Позиция успешно восстановлена в рынок
+      timeout: "Вы создали предыдущую позицию менее минуты назад. Пожалуйста подождите #{60-wait_for} секунд и повторите действие"
+    status:
+      archive: В архиве
+      completed: Завершено
+      in_process: В процессе
+      opened: Открыто
+    dictionary:
+      address: Адрес
+      address_placeholder: Укажите адрес
+      apply: Готово
+      attached_images: Прикрепленные изображения
+      attached_images_no: Изображений нет
+      buy: Купить
+      buy_plur: Покупаю
+      category: Категория
+      category_placeholder: Выбор категории
+      click_for_create: "Нажмите, чтобы создать"
+      close_position: Закрыть позицию
+      comment: Отзыв
+      comment_from: Отзыв от
+      create: Создать
+      create_position: Создать позицию
+      current_currency: По текущему курсу
+      date: Дата
+      deal_between: Сделка между
+      description: Описание
+      discount: Допуск
+      edit: Редактировать
+      edit_position: Редактировать позицию
+      go_to_position: На страницу позиции
+      i_want: Я хочу
+      its_your_position: Это ваша позиция!
+      no_data: Нет данных
+      no_offers: Нет предложений
+      offer: Предложение
+      offers: Предложения
+      position: Позиция
+      positions: Позиции
+      preview: Просмотр
+      price: Цена
+      region: Регион
+      restore_position: Восстановить позицию
+      save: Сохранить
+      search: Поиск
+      select_suit_position: Выберите подходящую позицию
+      sell: Продать
+      sell_plur: Продаю
+      send: Отправить
+      send_comment: Оставить отзыв
+      send_offer: Отправить предложение
+      template: Шаблон
+      template_placeholder: Выберите шаблон 
+      template_save: Сохранить шаблон
+      trade_types:
+        1: купить
+        2: продать
+      go_to_chat: Обсуждение
+      recieved: Получено
+      reputation_type:
+        positive: Положительно
+        negative: Негативно
+      sent: Отправлено
+      title: Название
+      type: Тип
+      upload_photo: Загрузить фото
+      weight: Вес(объем)
+      weight_min: Мин. заказ
+      you_have_not_suit_position: У вас нет подходящих позиций
+  offer:
+    plur:
+      - предложение
+      - предложения
+      - предложений
+    user: Предложение пользователя
+    notice:
+      completed: Получение товара подтверждено
+      created: Предложение успешно создано
+      deleted: Предложение успешно отозвано
+      double: У вас уже есть предложение данной позиции
+      send_earlier: Предложение было отправлено раннее
+      unsuitable: Позиция не подходит
+      withdraw_error: "Нельзя удалить подтвержденную сделку! Свяжитесь с администрацией, если у Вас возникли вопросы."

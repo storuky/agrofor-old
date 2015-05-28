@@ -1,0 +1,1 @@
+$translator = Yandex::Translator.new('trnsl.1.1.20150525T162133Z.30e20b932ab5d439.bc2540a8c1e2a58c5b21773c3cc836500581445d')

@@ -1,0 +1,26 @@
+div ng-controller="ListCtrl"
+  .page.search__list
+    h1.search__list__title = t "title.list"
+
+    .search__list__wrapper
+      table.table.table-hover.search__list__table
+        tbody ng-repeat="pos in Search.result"
+          tr ng-click="Position.goTo(pos.id, $event)"
+            td.search__list__table__star
+              .search__table__star.icon-star-fill ng-click="Search.toggleFavorite(pos.id, $event)" ng-class="{'active': User.data.favorite_ids.indexOf(pos.id)!=-1}"
+            td.w0
+              | {{::pos.created_at | date: 'dd.MM.yyyy'}}
+            td.w0 style="width: 200px;"
+              b
+                | {{::Data.trade_types_group[pos.trade_type].plur}}
+            td
+              | {{::Data.options[pos.option_id].title_locale}}
+            td
+              b
+                |{{::pos.title}}
+            td.w0
+              | {{::pos.weight}}{{::Data.dimensions_group[pos.weight_dimension_id].title}}
+            td.w0
+              | мин. {{::pos.weight_min}}{{::Data.dimensions_group[pos.weight_dimension_id].title}}
+            td.w0
+              | {{::pos.price}} {{Data.currency_group[pos.currency_id].title}}/{{::Data.dimensions_group[pos.weight_dimension_id].title}}

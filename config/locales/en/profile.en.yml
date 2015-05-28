@@ -1,0 +1,26 @@
+en:
+  profile:
+    update:
+      error: Error to update the profile
+    dictionary:
+      additional: Additional information
+      address: Address
+      address_not_select: Address
+      address_select: Address
+      agree_info: 'By clicking "Save" you agree with <a href="%{terms}">Terms and conditions</a> and <a href="%{privacy}">Privacy policy</a>.'
+      city_not_specified: City is not specified
+      company: Company
+      company_placeholder: Company ltd
+      edit: Edit information
+      fio: Full name
+      go_to_deal: Page of this deal
+      message: Message
+      new_message: New message
+      personal_info: Personal information
+      phone_number: Phone number
+      phone_number_add: Add phone number
+      private_entrepreneur: "PE"
+      save: Save
+      start_correspondence: Start correspondence
+      upload: Upload
+      write: Send a message

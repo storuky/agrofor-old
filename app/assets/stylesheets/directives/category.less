@@ -1,0 +1,140 @@
+@import 'variables.less';
+
+.category-modal {
+  width: 860px;
+  margin-left: -430px;
+  margin-top: -260px;
+  margin-bottom: 50px;
+
+  *:first-letter {
+    text-transform: uppercase;
+  }
+
+  .md__head__title {
+    padding-top: 10px;
+  }
+
+  .icon-check {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    font-size: 16px;
+    color: white;
+  }
+
+  &__column {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__content {
+    height: 380px;
+    overflow: auto;
+    border-top: 1px solid rgba(0,0,0,.15);
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    padding-top: 75px;
+  }
+
+  &__category {
+    padding: 0 10px;
+
+    &__title {
+      color: #428bca;
+      font-size: 17px;
+      padding-left: 15px;
+      padding-bottom: 5px;
+      white-space: nowrap;
+    }
+
+    &__option {
+      position: relative;
+
+
+      &__title {
+        padding: 8px 30px 8px 15px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: #333;
+        white-space: normal;
+        cursor: pointer;
+
+        &.active {
+          background: @blue !important;
+          color: white !important;
+
+          & ~ .icon-check {
+            color: white !important;
+          }
+        }
+
+        &:hover {
+          background: #e7e7e7;
+
+          & ~ .icon-check {
+            color: #e7e7e7;
+          }
+        }
+      }
+    }
+  }
+
+  .divider {
+    height: 1px;
+    margin: 8px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+  }
+
+  &__footer {
+    background: #F5F5F5;
+    padding: 10px 18px;
+    text-align: right;
+    display: block;
+
+    .btn {
+      padding: 3px 20px;
+    }
+  }
+
+  .no_category {
+    color: #333;
+    margin: 7px 6px;
+    display: inline-block;
+    border-bottom: 1px dotted;
+    line-height: 17px;
+
+    &:hover {
+      color: @blue;
+    }
+  }
+
+  .search__input {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 15px;
+    top: 36px;
+    display: block;
+    padding: 12px 20px;
+    background: rgba(255,255,255,.7);
+    box-shadow: 0px 1px 3px -2px rgba(0,0,0,.4);
+    border-radius: 0;
+
+    &__icon {
+      top: 22px;
+      left: 34px;
+    }
+
+    input[type="text"] {
+      height: 38px;
+      border: 1px solid #e5e5e5;
+      background: #f8f8f8;
+      width: 100%;
+
+      &:focus {
+        background: #fff;
+      }
+    }
+  }
+}

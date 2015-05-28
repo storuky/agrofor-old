@@ -1,0 +1,66 @@
+@import "variables.less";
+
+.dimension {
+  position: absolute;
+  right: 8px;
+  top: 10px;
+
+  &-group {
+    position: relative;
+    display: inline-block;
+
+    input[type="text"] {
+      width: 100%;
+    }
+  }
+
+  input[type="text"]:focus ~ & > &__selected {
+    background: white;
+  }
+
+  &__selected {
+    cursor: pointer;
+    border-bottom: 1px dotted black;
+    height: 13px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 11px;
+    background: rgb(248, 248, 248);
+
+    &:not(.disabled):hover {
+      color: @blue;
+      border-color: @blue;
+    }
+
+    &.disabled {
+      border: none;
+      cursor: default;
+    }
+  }
+
+  &__options {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 5px;
+    border: 1px solid @input_border;
+    display: block;
+    position: absolute;
+    background: white;
+    margin-top: 2px;
+    z-index: 100;
+  }
+
+  &__option {
+    padding: 5px 10px;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      background: rgba(222, 229, 245, 0.56);
+    }
+
+    &.active {
+      background: @blue !important;
+      color: white;
+    }
+  }
+}

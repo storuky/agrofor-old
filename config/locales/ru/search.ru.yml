@@ -1,0 +1,13 @@
+ru:
+  search:
+    dictionary:
+      suit_for_me: Подходящие мне
+      advanced_search: Расширенный поиск
+      have_not_opened_position: У вас нет открытых позиций
+      create_position: Создать позицию
+      search: Поиск
+      search_placeholder: "Например: купить пшеницу"
+      reset: Сброс
+      by_map: По карте
+      by_list: По списку
+      category_not_checked: Выберите категорию

@@ -1,0 +1,69 @@
+.page
+  .clearfix
+    h1
+      span ng-show="type == 'positions'" = t "title.my_positions"
+      span ng-show="type == 'offers'" = t "title.my_offers"
+    .page-tabs.pull-right
+      a ng-class="{active: type=='positions'}" href="/positions?type=positions&status=opened"
+        = t "position.dictionary.positions"
+      a ng-class="{active: type=='offers'}" href="/positions?type=offers&status=opened"
+        = t "position.dictionary.offers"
+  .clearfix style="margin-top: 17px"
+    .page-search.pull-left
+      i.icon-search
+      input type="text" placeholder="#{t 'position.dictionary.search'}..." ng-model="search"
+    .pull-right.page-nav
+      radio ng-show="type=='positions'" options="Data.statuses" ng-model="status"
+      radio ng-show="type=='offers'" options="Data.offers_statuses" ng-model="status"
+
+  .positions__no-data ng-show="!Position.positions.length"
+    div style="position: absolute; top:50%; width: 100%; margin-top: -13px;"
+      = t "position.dictionary.no_data"
+
+  table.table.table-hover.positions__table
+    tbody ng-repeat="pos in Position.positions | filter:search | orderBy:'offers':true" ng-class="{active: isShow}" ng-init="isShow = pos.offers.length || pos.offers.length || pos.deal_with"
+      tr ng-class="{'bt-none':isShow}" ng-click="isShow= (pos.offers.length || pos.positions.length || pos.deal_with) ? !isShow : false"
+        td.positions__table__chevron
+          i.positions__table__arrow.icon-chevron-right ng-show="!isShow"
+          i.positions__table__arrow.icon-chevron-down ng-show="isShow"
+        td.w0
+          | {{::pos.created_at | date: 'dd.MM.yyyy'}}
+        td.w0
+          b
+            | {{::Data.trade_types_group[pos.trade_type].plur}}
+        td
+          | {{::Data.options[pos.option_id].title_locale}}
+        td style="width: 200px;"
+          b ng-show="pos.positions.length"
+            | {{type=='offers' ? '#{t "position.dictionary.sent"}':'#{t "position.dictionary.recieved"}'}} {{pos.positions.length}} {{pluralize(pos.positions.length, #{t("offer.plur")})}}
+          b ng-show="pos.offers"
+            span ng-show="!pos.offers.length"
+              | #{t "position.dictionary.no_offers"}
+            strong ng-show="pos.offers.length"
+              | {{pos.offers.length}} {{pluralize(pos.offers.length, #{t("offer.plur")})}}
+        td.w0
+          | {{::pos.weight}}{{::Data.dimensions_group[pos.weight_dimension_id].title}}
+        td.w0
+          | {{::pos.price}} {{::Data.currency_group[pos.currency_id].title}}/{{::Data.dimensions_group[pos.weight_dimension_id].title}}
+        td.w0
+          a.btn.btn-primary.positions__table__btn ng-show="type=='offers'" href="/positions/{{pos.id}}" ng-click="Position.goTo(pos.id, $event);" = t "position.dictionary.preview"
+          a.btn.btn-primary.positions__table__btn ng-show="type=='positions'" href="/positions/{{pos.id}}/edit" ng-click="Position.goToEdit(pos.id, $event)" = t "position.dictionary.edit"
+            
+      tr ng-click="Position.goTo(offer.id, $event)" ng-class="{'tr-shadow':$index==0}" ng-repeat="offer in (pos.offers || pos.positions || pos.deal_with)" ng-show="isShow"
+        td
+          i.icon-clock ng-show="pos.deal_with_id && !Position.status=='completed'"
+        td.w0
+          | {{::pos.created_at | date: 'dd.MM.yyyy'}}
+        td.w0
+          | {{::Data.trade_types_group[offer.trade_type].plur}}
+        td
+          | {{::Data.options[pos.option_id].title_locale}}
+        td
+          | {{::offer.address}}
+        td.w0
+          | {{::offer.weight}}{{::Data.dimensions_group[offer.weight_dimension_id].title}}
+        td.w0
+          | {{::offer.price}} {{::Data.currency_group[offer.currency_id].title}}/{{::Data.dimensions_group[offer.weight_dimension_id].title}}
+        td.w0.p0 onclick="event.stopPropagation()"
+          a.btn.btn-primary.positions__table__btn ng-click="Position.goToChat(pos.id, offer.id, $event)"
+            = t "position.dictionary.go_to_chat"

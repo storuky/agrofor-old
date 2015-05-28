@@ -1,0 +1,27 @@
+.page ng-controller="SettingsCtrl"
+  h1 = t "title.settings"
+  .settings
+    .settings__row.clearfix
+      .title = t "settings.localization"
+      .settings__col
+        label #{t "settings.language"}:
+        div
+          ng-select options="Data.locales" ng-model="form.locale"
+      .settings__col
+        label #{t "settings.currency"}:
+        div
+          ng-select options="Data.currency" ng-model="form.currency_id"
+    .settings__row.clearfix
+      .title = t "settings.new_offer_notice"
+      .settings__col.lg
+        label.checkbox
+          input type="checkbox" ng-model="form.email_notify"
+          .checker
+          = t "settings.by_email"
+      .settings__col.lg
+        label.checkbox
+          input type="checkbox" ng-model="form.sms_notify"
+          .checker
+          = t "settings.by_sms"
+    .settings__row
+      a.btn.btn-primary ng-click="saveSettings()" = t "settings.save"

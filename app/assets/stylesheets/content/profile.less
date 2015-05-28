@@ -1,0 +1,246 @@
+@import 'variables.less';
+
+.profile {
+
+  .avatar__spinner {
+    position: absolute;
+    margin: 40px 37px;
+  }
+
+  &__add-phone {
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 3px;
+  }
+
+  &__save {
+    position: absolute;
+    bottom: 6px;
+    margin-left: 600px;
+
+    &__info {
+      font-weight: lighter;
+      width: 300px;
+      color: @gray;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+  
+  &__form {
+    margin-left: 10px;
+    width: 400px;
+    overflow-x: hidden;
+
+    input, textarea {
+      width: 100%;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 3px;
+      display: inline-block;
+    }
+
+    .phone-input {
+      margin-top: 5px;
+      position: relative;
+
+      .icon-close {
+        position: absolute;
+        right: 10px;
+        top: 13px;
+        font-size: 10px;
+        z-index: 3;
+        color: #ccc;
+        cursor: pointer;
+        display: block;
+        height: 36px;
+        top: 0;
+        width: 20px;
+        right: 0;
+        padding-top: 14px;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+
+  &__personal {
+    margin-top: 10px;
+    position: relative;
+
+    &__field {
+      padding-bottom: 5px;
+      position: relative;
+    }
+
+    &__name {
+      letter-spacing: -1px;
+      font-size: 24px;
+    }
+
+    &__company {
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: -1px;
+    }
+
+    &__info {
+      margin-top: 10px;
+      font-size: 15px;
+      min-height: 72px;
+    }
+
+    &__address {
+      font-size: 13px;
+      color: @blue;
+      white-space: nowrap;
+    }
+
+    &__user-info {
+      float: left;
+    }
+
+    &__user-pic {
+      width: 145px;
+
+      margin-right: 20px;
+
+      img {
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        width: 100%;
+        font-size: 14px;
+        font-weight: lighter;
+      }
+    }
+  }
+
+  &__positions {
+
+    &__tab {
+      text-align: center;
+      display: inline-block;    
+      margin-right: 10px;
+      margin-top: -3px;
+      color: @blue;
+
+      &.active, &:hover {
+        color: #333;
+      }
+    }
+  }
+
+  &__tabs {
+    margin: 10px 0 20px 0;
+    font-size: 16px;
+
+    a {
+      margin-right: 10px;
+      display: inline-block;
+      border-bottom: 1px dotted;
+
+      &.active {
+        color: #333;
+        cursor: default;
+        border: none;
+      }
+    }
+  }
+}
+
+.reputations {
+  margin-top: 15px;
+
+  &__item {
+    padding-left: 25px;
+
+    &.positive {
+      border-left: 3px solid @green;
+
+      .reputations__item__title {
+        &, & a{
+          color: @green;
+        }
+      }
+    }
+
+    &.negative {
+      border-left: 3px solid @red;
+
+      .reputations__item__title {
+        &, a{
+          color: @red;
+        }
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 25px;
+    }
+
+    &__left {
+      margin-right: 250px;
+    }
+
+    &__right {
+      width: 250px;
+      float: right;
+      padding-left: 25px;
+    }
+
+    &__title {
+      margin-bottom: 10px;
+      color: @green;
+      font-size: 18px;
+    }
+
+    &__body {
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    &__date {
+      font-size: 16px;
+      margin-bottom: 10px;
+      line-height: 20px;
+      display: inline-block;
+    }
+
+    &__position {
+      font-size: 15px;
+      line-height: 20px;
+
+      label {
+        display: inline-block;
+        width: 80px;
+        float: left;
+      }
+
+      span {
+        display: block;
+        margin-left: 90px;
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 10px;
+
+        .icon-next {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+}

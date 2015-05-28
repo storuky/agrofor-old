@@ -1,0 +1,17 @@
+.md.md__center.position__md ng-class="{'md-show': isShowPosition}"
+  .md__content
+    .md__head
+      img.md__head__img ng-src="{{Search.position_info.user.avatar.url}}" height="20" width="20"
+      .md__head__title
+        | {{Search.position_info.user.name}}
+        .rating
+          .rating__red
+            | {{Search.position_info.user.positive_count}}
+          .rating__green
+            | {{Search.position_info.user.negative_count}}
+        .md__head__sep |
+        .md__head__favorite
+          i.search__table__star.icon-star-fill ng-class="{'active': User.data.favorite_ids.indexOf(Search.position_info.id)!=-1}" style="margin-left:0" ng-click="Search.toggleFavorite(Search.position_info.id)"
+      .md__close ng-click="isShowPosition = false"
+        | &times;
+    = render file: 'positions/show'

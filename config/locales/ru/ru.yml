@@ -1,0 +1,149 @@
+ru:
+  title:
+    create_position: "Создать позицию"
+    help: "Помощь"
+    list: "Список"
+    messages: "Сообщения"
+    my_offers: "Мои предложения"
+    my_positions: "Мои позиции"
+    profile: "Профиль"
+    reputation: "Отзывы"
+    settings: "Настройки"
+
+  weight:
+    ft3: ft³
+    kg: кг
+    liter: литр
+    m3: м³
+    tonn: т
+
+  currency:
+    AUD: "AUD"
+    CAD: "CAD"
+    CNY: "CNY"
+    EUR: "€"
+    GBP: "£"
+    JPY: "¥"
+    NZD: "NZD"
+    RUB: "руб"
+    USD: "$"
+
+  category:
+    checked:
+      error: Не выбрано ни одной категории
+
+  user:
+    notice:
+      add_phone: Добавьте телефон
+      enter_address: Укажите ваш адрес
+      enter_email: Укажите ваш email
+      enter_name: Укажите ваше Ф.И.О.
+      not_auth: Вы не авторизованы
+      not_found: Пользователь не найден
+      not_permit: Действие не разрешено
+    location: Ваше местоположение
+
+  file:
+    remove:
+      error: Ошибка удаления файла
+      sucess: Файл успешно удален
+    upload:
+      error: Ошибка при загрузке файла
+      success: Файл успешно загружен
+    format:
+      error: Недопустимый формат
+
+  terms: Правила использования
+  agrofor: Агрофор
+
+  confirm:
+    confirm_action: "Подтвердите действие"
+    confirm_no: "Отмена"
+    confirm_yes: "Подтвердить"
+    close_position:
+      main: "Вы уверены, что хотите закрыть данную позицию?"
+      description: Позицию в любой момент можно будет восстановить. Однако все предложения будут удалены.
+    restore_position:
+      main: "Вы уверены, что хотите восстановить данную позицию?"
+      description: Позиция будет восстановлена в рынок с текущими параметрами. Время ее создания будет обновлено на текущее.
+    withdraw_position:
+      main: Вы дейстивтельно хотите отменить сделку?
+      description: В любой момент Вы сможете перезаключить сделку с данным пользователем.
+    agree_position:
+      main: Вы обсудили все условия сделки в чате?
+      description: "Обращаем ваше внимание, что подтвержденные сделки отменить нельзя."
+    complete_position:
+      main: Вы действительно подтверждаете получение товара?
+      description: "После подтверждения, Вы сможете оставить отзыв данному пользователю. Просим Вас отнестись со всей ответственностью к данному действию. От репутации пользователя зависит уровень доверия к нему."
+    reject_position:
+      main: Вы действительно хотите отказаться от сделки?
+      description: "Предложение будет отклонено, о чем появится соответствующее сообщение в чате."
+
+  pick_address:
+    address: Адрес
+    apply: Готово
+    city: Город
+    title: Окно выбора адреса
+
+  sign:
+    email: Email
+    fio: ФИО
+    forgot_password: Забыли пароль?
+    password: Пароль
+    in:
+      have_not_account: Нет аккаунта?
+      registration_text: "Зарегистрируйтесь и откройте для себя новый, перспективный и динамично развивающийся рынок!"
+      registration_title: "Зарегистрироваться"
+      text: Для входа укажите данные своего аккаунта
+      title: Вход
+    up:
+      have_account: Уже есть аккаунт?
+      login_text: Войдите под существующим аккаунтом
+      login_title: "Войти"
+      text: Укажите необходимые начальные сведения
+      title: Регистрация
+  dictionary:
+    min: мин.
+    and: и
+
+  settings:
+    localization: Локализация
+    language: Язык
+    currency: Валюта
+    new_offer_notice: Оповещения о новых предложениях
+    by_email: по Email
+    by_sms: по SMS
+    save: Сохранить
+
+  activerecord:
+    errors: 
+      models:
+        position: 
+          attributes:
+            address:
+              blank: Укажите адрес
+            address_lat:
+              not_a_number: Неверная lat-координата
+            address_lon:
+              not_a_number: Неверная lon-координата
+            trade_type:
+              inclusion: Укажите тип позиции
+            category_id:
+              not_a_number: Выберите категорию
+            option_id:
+              not_a_number: Выберите категорию
+            price:
+              not_a_number: Цена должна быть числом
+            title:
+              blank: Укажите название позиции
+              too_long: Название не может быть длиннее 50 символов
+            weight:
+              not_a_number: Вес(объем) должен быть числом
+              greater_than: Вес должен быть больше нуля
+            weight_min:
+              not_a_number: Мин.заказ должен быть числом
+              less_then_weight: Должно быть меньше чем вес
+            weight_type:
+              inclusion: Размерность указано неверно!
+            delivery_type:
+              inclusion: Тип указан неверно!

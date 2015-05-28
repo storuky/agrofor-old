@@ -1,0 +1,102 @@
+en:
+  position:
+    plur:
+      - position
+      - positions
+    notice:
+      closed: Position is successfully closed
+      created: Position is successfully created
+      deleted: Position is successfully deleted
+      updated: Position is successfully updated
+      saved:
+        error: Error when saving position
+      agree: The user confirmed his participation
+      already_in_process: Deal is in process with other participant
+      completed: Sending is confirmed
+      empty_reputation: You can not send an empty comment
+      empty_reputation_type: "The deal must be mark as positive or negative"
+      has_comment: "Position already has comment"
+      not_found: Position is not found
+      rejected: Offer has been rejected
+      restored: Position successfully restored in the market
+      timeout: "You have created the previous position within a minute. Please wait %{wait_for} seconds and repeat the action."
+    status:
+      archive: Archive
+      completed: Completed
+      in_process: In process
+      opened: Opened
+    dictionary:
+      address: Address
+      address_placeholder: Choice address
+      apply: Apply
+      attached_images: Attached images
+      attached_images_no: No images
+      buy: Buy
+      buy_plur: Buy
+      category: Category
+      category_placeholder: Select category
+      click_for_create: "Click for create"
+      close_position: Close position
+      comment: Comment
+      comment_from: Comment from
+      create: Create position
+      create_position: Create position
+      current_currency: By current rate
+      date: Date
+      deal_between: The deal between
+      description: Description
+      discount: Deviation
+      edit: Edit position
+      edit_position: Edit position
+      go_to_position: Page of this position
+      i_want: You offer
+      its_your_position: It is your position!
+      no_data: No information
+      no_offers: No offers
+      offer: Offer
+      offers: Offers
+      position: Position
+      positions: Positions
+      preview: Preview
+      price: Price
+      region: Region
+      restore_position: Restore this position
+      save: Save
+      search: Seach
+      select_suit_position: Select the appropriate position
+      sell: Sell
+      sell_plur: Sell
+      send: Send
+      send_offer: Send offer
+      send_comment: Create comment
+      template: Template
+      template_placeholder: Select the template
+      template_save: Save the template
+      title: Title
+      type: Type
+      trade_types:
+        1: buy
+        2: sell
+      go_to_chat: Chat
+      recieved: Recieved
+      reputation_type:
+        positive: Positive
+        negative: Negative
+      sent: Sent
+      upload_photo: Upload photo
+      weight: Weight (Volume)
+      weight_min: Min. weight
+      you_have_not_suit_position: You do not have suitable positions
+  offer:
+    plur:
+      - offer
+      - offers
+    user: Users offer
+    notice:
+      completed: Receipt for the goods is confirmed
+      created: Offer is successfully created
+      deleted: Offer is successfully revoked
+      double: You have already got an offer for your position
+      send_earlier: The offer was sent earlier
+      unsuitable: Position is not suitable
+      withdraw_error: "You can not delete the confirmed deal! Please contact us for further information."

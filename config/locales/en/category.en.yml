@@ -1,0 +1,31 @@
+en:
+  category:
+    i_am_not_found: Have you found the appropriate category?
+    plur:
+      - category
+      - categories
+    items:
+      "berries": "berries"
+      "bobs": "Legumes"
+      "corn": "Corn"
+      "dairy": "Dairy"
+      "dried fruit": "Dried fruit"
+      "eggs": "Eggs"
+      "fish": "Fish"
+      "fruits": "Fruits"
+      "herbs": "Herbs"
+      "mushrooms": "Mushrooms"
+      "feed for animals": "Animal feed"
+      "oilseeds": "oilseeds"
+      "meat": "Meat"
+      "honey": "Honey"
+      "flour": "Flour"
+      "nuts": "Орехи"
+      "vegetable oil": "Vegetable oil"
+      "seafood": "Seafood"
+      "seed ang seedlings": "Seed ang seedlings"
+      "sugar": "Sugar"
+      "vegetables": "Vegetables"
+      "wheat": "Wheat"
+      "wood": "Lumber"
+      "fertilizers and chemicals": "Fertilizers and Chemicals"

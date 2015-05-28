@@ -1,0 +1,22 @@
+ru:
+  message:
+    offer:
+      complete: Получение товара подтверждено
+      created: Предложение создано
+    position:
+      agree: Я подтверждаю свое участие в сделке
+      close: Пользователь закрыл свою позицию
+      complete: Отправка товара подтверждена
+      completed: "Я подтверждаю {{deal_plur2[offer.trade_type]}}"
+      new_offer: "<p>Здравствуйте!<p> Я бы хотел <b>{{deal_plur1[offer.trade_type]}}</b> {{offer.weight}} {{Data.dimensions_group[offer.weight_dimension_id].title}} товара <b>«{{Data.options[offer.option_id].category.title_locale}}»</b> по цене <b>{{offer.price}} {{Data.currency_group[offer.currency_id].title}}/{{Data.dimensions_group[offer.weight_dimension_id].title}}</b> согласно позиции <a href='/positions/{{offer.id}}'>№ {{offer.id}}</a>. Предлагаю обсудить все условия и заключить сделку!"
+      rejected: Я отказываюсь от сделки на данных условиях
+      withdraw: Я отзываю свое предложение
+      plur1:
+        1: "купить у вас"
+        2: "продать вам"
+      plur2:
+        1: "получение"
+        2: "передачу"
+    notice:
+      empty: Нельзя отправить пустое сообщение
+      sending_error: "Ошибка при отправке сообщения. Пожалуйста, повторите операцию или попробуйте позже."

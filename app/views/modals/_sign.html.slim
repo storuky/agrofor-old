@@ -1,0 +1,57 @@
+.md.md__center.md__sign ng-controller="SignCtrl" ng-class="{'md-show': $root.showSign}" class="{{'sign_'+sign}}"
+  .md__content
+    .md__close ng-click="$root.showSign=false"
+      i.icon-croos
+    .md__body.clearfix ng-init="sign='in'" ng-class="'sign_'+sign"
+      div ng-show="sign=='in'"
+        .md__sign__left
+          .md__title = t "sign.in.title"
+          .md__text = t "sign.in.text"
+          = form_for(@resource ||= User.new, as: :user, url: session_path(:user)) do |f|    
+            .md__form.clearfix
+              .md__form__input
+                i.flaticon-at4
+                = f.email_field :email, autofocus: "off", placeholder: t("sign.email"), "ng-model" => "sign_in_form.user.email"
+              .md__form__input
+                i.flaticon-closed
+                = f.password_field :password, autofocus: "off", placeholder: t("sign.password"), "ng-model" => "sign_in_form.user.password"
+              .clearfix
+                .pull-left
+                 a.btn.btn-primary.btn-lg ng-click="sign_in(sign_in_form)" = t("sign.in.title")
+                .pull-right.link-align-button
+                  a = t "sign.forgot_password"
+        .md__sign__right
+          .md__sign__title
+            = t "sign.in.have_not_account"
+          .md__sign__text
+            = t "sign.in.registration_text"
+          a.btn.btn-black.btn-lg ng-click="sign='up'"
+            = t "sign.in.registration_title"
+      div ng-show="sign=='up'"
+        .md__sign__left
+          .md__title = t "sign.up.title"
+          .md__text = t "sign.up.text"
+          = form_for(@resource ||= User.new, as: :user, :url => registration_path(:user)) do |f|
+            .md__form.clearfix
+              .md__form__input
+                i.flaticon-user91
+                = f.text_field :name, autofocus: "off", placeholder: t("sign.fio"), "ng-model" => "sign_up_form.user.name"
+              .md__form__input
+                i.flaticon-at4
+                = f.email_field :email, autofocus: "off", placeholder: t("sign.email"), "ng-model" => "sign_up_form.user.email"
+              .md__form__input
+                i.flaticon-closed
+                = f.password_field :password, autofocus: "off", placeholder: t("sign.password"), "ng-model" => "sign_up_form.user.password"
+              .clearfix
+                .pull-left
+                  a.btn.btn-primary.btn-lg ng-click="sign_up(sign_up_form)" = t("sign.up.title")
+                .pull-right.link-align-button
+                  a = t "terms"
+        .md__sign__right
+          .md__sign__title
+            = t "sign.up.have_account"
+          .md__sign__text
+            = t "sign.up.login_text"
+          a.btn.btn-black.btn-lg  ng-click="sign='in'" = t "sign.up.login_title"
+          div
+            a.right_link = t "sign.forgot_password"

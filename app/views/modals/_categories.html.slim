@@ -1,0 +1,30 @@
+script#categories_tmpl type="text/ng-template"
+  .md.md__center.category-modal ng-class="{'md-show': isShow}"
+    .md__content
+      .md__head
+        .md__head__title
+          | #{t "position.dictionary.category_placeholder"}
+        .md__close ng-click="isShow = false"
+          | &times;
+      .category-modal__content
+        .search__input
+          i.search__input__icon.icon-search
+          input ng-model-options="{debounce: 100}" type="text" placeholder="Поиск категории" ng-model="search"
+        .category-modal__column ng-repeat="column in category_columns | filter:search"
+          .category-modal__category ng-repeat="category in column | filter:search"
+            .category-modal__category__title
+              | {{::category.title_locale}}
+            .category-modal__category__options
+              .category-modal__category__option ng-repeat="option in category.options | filter:search"
+                .category-modal__category__option__title ng-click="setActiveOptions(option)" ng-class="{active: isActive(option.id)}"
+                  | {{::option.title_locale}}
+                i.icon-check
+            .divider
+      .category-modal__footer.clearfix
+        .pull-left
+          a.no_category #{t "category.i_am_not_found"}
+        .pull-right
+          a.btn.btn-primary ng-click="apply()"
+            | #{t "position.dictionary.apply"}
+
+

@@ -1,0 +1,65 @@
+.page ng-controller="PositionShow"
+  .position.clearfix
+    h1 ng-hide="$root.mapPage || Search.position_info.status=='completed'"
+      i.icon-star-fill ng-click="Search.toggleFavorite(Search.position_info.id)" ng-class="{'active': User.isFavorite(Search.position_info.id)}"
+      | #{t "position.dictionary.position"} #
+      | {{Search.position_info.id}}
+    h1 ng-hide="$root.mapPage || Search.position_info.status!='completed' || isRate"
+      | #{t "position.dictionary.deal_between"}
+      a ng-href="/profile/{{Search.position_info.user_id}}"
+        | &nbsp; {{Search.position_info.user.name}}
+      | &nbsp; #{t "dictionary.and"} &nbsp;
+      a ng-href="/profile/{{Search.position_info.deal_with[0].user_id}}"
+        | {{Search.position_info.deal_with[0].user.name}}
+      br
+      br
+    a ng-show="isRate" ng-click="resetSerch()"
+      i.icon-back style="padding-right: 5px; position: relative; top: 1px;"
+      = t "profile.dictionary.go_to_deal"
+    spinner.position__show__spinner ng-show="Search.positionInfoInProgress"
+    .clearfix ng-class="{position__show__opacity: Search.positionInfoInProgress}"
+      position-info.pull-left ng-class="{position__show__modal: $root.mapPage}" form="Search.position_info" is-position="Search.position_info.status=='completed'" ng-show="!isRate || (isRate && User.data.id==Search.position_info.deal_with[0].user_id)"
+      position-info#rate.pull-left ng-if="Search.position_info.status=='completed'" ng-class="{position__show__modal: $root.mapPage}" form="Search.position_info.deal_with[0]" is-offer="Search.position_info.status=='completed'" ng-show="!isRate || (isRate && User.data.id==Search.position_info.deal_with[0].deal_with[0].user_id)"
+
+      .position__suitable.pull-left ng-if="Search.position_info.status!='completed'"
+        .position__suitable__label #{t "position.dictionary.attached_images"}:
+        .position__show__photos.dcbox scroll="" axis="x" rebuild="{{Search.position_info.photos.length}}" ng-class="{'no-photo': !Search.position_info.photos.length}"
+          .no-result ng-show="!Search.position_info.photos.length"
+            | #{t "position.dictionary.attached_images_no"}
+          a ng-href="{{photo.photo.url}}" ng-repeat="photo in Search.position_info.photos"
+            img ng-src="{{photo.photo.thumb.url}}" height="70"
+        a.position__suitable__select.your_position ng-show="Search.position_info.user_id==User.data.id" ng-href="/positions/{{Search.position_info.id}}/edit"
+          h1 #{t "position.dictionary.its_your_position"}
+        div ng-show="Search.position_info.user_id!=User.data.id && Search.position_info.status=='opened'"
+          .position__suitable__label #{t "position.dictionary.select_suit_position"}:
+          .position__suitable__select ng-class="{active:suitableShow}" ng-click="toggleSuitable()"
+            .position__suitable__select__arrow.pull-right ng-show="Search.suitable_list.length"
+              i.icon-chevron-down
+            div.position__suitable__select__none ng-hide="Search.suitable_list.length"
+              div #{t "position.dictionary.you_have_not_suit_position"}
+              label #{t "position.dictionary.click_for_create"}
+            .position__suitable__select__text ng-show="Search.suitable_list.length"
+              div
+                b 
+                  | {{suitableCurrent.created_at | date:"dd.MM.yyyy"}}
+              div
+                b
+                  | {{suitableCurrent.title}}
+              div
+                | {{Data.options[suitableCurrent.option_id].title_locale}}
+              div
+                | {{Position.buildInfo(suitableCurrent)}}
+            ul.position__suitable__select__items scroll="" rebuild="Search.suitable_list.length" ng-show="suitableShow"
+              li.position__suitable__select__item ng-repeat="suitPosition in Search.suitable_list" ng-click="suitableCheck(suitPosition, $event);" ng-class="{active: suitableCurrent.id==suitPosition.id}"
+                .position__suitable__select__text
+                  div
+                    b 
+                      | {{suitPosition.created_at | date:"dd.MM.yyyy"}}
+                  div
+                    b
+                      | {{suitPosition.title}}
+                  div
+                    | {{Data.options[suitPosition.option_id].title_locale}}
+                  div
+                    | {{Position.buildInfo(suitPosition)}}
+          a.position__send.btn.btn-primary.btn-lg ng-disabled="!Search.suitable_list.length"  ng-click="sendOffer()" #{t "position.dictionary.send_offer"}

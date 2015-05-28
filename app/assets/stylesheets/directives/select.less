@@ -1,0 +1,145 @@
+@import "variables.less";
+
+.select {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  &.right {
+    .select__list {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__checked {
+    padding: 10px;
+    padding-right: 25px;
+    display: inline-block;
+    height: 36px;
+    width: 100%;
+    min-width: 180px;
+    background: @input_background;
+    border: 1px solid @input_border;
+    border-radius: @input_radius;
+
+    &__title {
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+    }
+
+    &:hover, &.active {
+      background: white;
+      cursor: pointer;
+    }
+  }
+
+  &__caret {
+    display: block;
+    position: absolute;
+    right: 1px;
+    top: 6px;
+    font-size: 15px;
+    padding: 5px 9px;
+
+    &:before {
+      box-shadow: -2px 0 6px 6px @input_background;
+    }
+    .select__checked:hover > &:before, .select__checked.active > &:before {
+      box-shadow: -2px 0 6px 6px white;
+    } 
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 38px;
+    z-index: 1;
+    background: white;
+    border: 1px solid @input_border;
+    border-radius: @input_radius;
+    max-height: 180px;
+    overflow-y: auto;
+
+    &__wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+
+    &__footer {
+      display: none;
+    }
+  }
+
+  &__item {
+    padding: 10px;
+    padding-left: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-transform: capitalize;
+
+    &__other {
+      font-weight: 500;
+      display: none;
+    }
+
+    &:hover {
+      background: @input_background;
+    }
+
+    &.active {
+      color: white !important;
+      background: @blue;
+
+    }
+  }
+
+  &__category {
+    position: relative;
+
+    &:hover .icon-close {
+      display: inline-block;
+    }
+
+    .icon-close {
+      display: none;
+      position: absolute;
+      right: 10px;
+      font-size: 12px;
+      top: 11px;
+
+      &:hover {
+        color: @blue;
+      }
+    }
+
+    &__title {
+      position: relative;
+      display: block;
+      padding: 7px;
+      color: #428bca;
+      font-size: 17px;
+    }
+  }
+
+  &__option{
+    &__title {
+      margin-right: 15px;
+    }
+
+    &__check {
+      width: 15px;
+      color: white;
+    }
+  }
+}

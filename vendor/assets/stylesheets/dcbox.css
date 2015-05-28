@@ -1,0 +1,149 @@
+.dcbox-overlay iframe{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 53px;
+}
+.dcbox-overlay .title{
+  position: absolute;
+  top: 0;
+  color: #fff;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+}
+.dcbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  transition: .4s;
+  overflow: hidden;
+  z-index: 9999;
+}
+.dcbox-overlay.alt {
+  top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 20%;
+}
+.dcbox-button {
+  position: absolute;
+  width: 53px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  opacity:.5;
+}
+.dcbox-button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+#dcboxPrevious {
+  left: 0;
+  top: 50px;
+  bottom: 0;
+}
+#dcboxNext {
+  right: 0;
+  top: 50px;
+  bottom: 0;
+}
+#dcboxImages {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  transition: .4s;
+}
+#dcboxImages .image {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+#dcboxImages .image:before {
+  content: "";
+  display: inline-block;
+  height: 50%;
+  width: 1px;
+  margin-right: -1px;
+}
+#dcboxImages img {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+}
+#dcboxClose {
+  right: 0;
+  height: 50px;
+}
+#dcboxFull {
+  height: 50px;
+}
+#dcboxImages.bounce-left {
+  -webkit-animation: bounceLeft .5s;
+  animation: bounceLeft .5s;
+}
+#dcboxImages.bounce-right {
+  -webkit-animation: bounceRight 0.5s ease-out;
+  animation: bounceRight 0.5s ease-out;
+}
+@-webkit-keyframes bounceRight {
+0% {
+	transform: translateX(0);
+}
+50% {
+	transform: translateX(-50px);
+}
+100% {
+	transform: translateX(0);
+}
+}
+
+@keyframes bounceRight {
+0% {
+	transform: translateX(0);
+}
+50% {
+	transform: translateX(-50px);
+}
+100% {
+	transform: translateX(0);
+}
+}
+@-webkit-keyframes bounceLeft {
+0% {
+	transform: translateX(0);
+}
+50% {
+	transform: translateX(50px);
+}
+100% {
+	transform: translateX(0);
+}
+}
+
+@keyframes bounceLeft {
+0% {
+	transform: translateX(0);
+}
+50% {
+	transform: translateX(50px);
+}
+100% {
+	transform: translateX(0);
+}
+}

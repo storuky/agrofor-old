@@ -1,0 +1,43 @@
+script#position_info type="text/template"
+  .correspondences__popup ng-show="isShow"
+    .md__head.clearfix
+      .pull-left
+        | {{type=='my' ? '#{t "correspondence.dictionary.my_position"}' : '#{t "correspondence.dictionary.user_offer"}'}}
+      .pull-right
+        .close ng-click="isShow=false"
+          i.icon-close
+    form.position__show.pure-form.pure-form-aligned
+      .pure-control-group
+        label #{t "position.dictionary.date"}:
+        span.correspondences__popup__field
+          | {{form.created_at | date:"dd.MM.yyyy"}}
+      .pure-control-group
+        label #{t "position.dictionary.type"}:
+        span.correspondences__popup__field
+          | {{Data.trade_types_group[form.trade_type].title}}
+      .pure-control-group
+        label #{t "position.dictionary.category"}:
+        span.correspondences__popup__field
+          | {{Data.options[form.option_id].category.title_locale}}
+          |  /  
+          | {{Data.options[form.option_id].title_locale}}
+      .pure-control-group
+        label #{t "position.dictionary.region"}:
+        span.correspondences__popup__field
+          | {{form.city}}, {{form.address}}
+      .pure-control-group
+        label #{t "position.dictionary.weight"}:
+        span.correspondences__popup__field
+          | {{form.weight}} {{Data.dimensions_group[form.weight_dimension_id].title}}
+      .pure-control-group
+        label #{t "position.dictionary.weight_min"}:
+        span.correspondences__popup__field
+          | {{form.weight_min}} {{Data.dimensions_group[form.weight_dimension_id].title}}
+      .pure-control-group
+        label #{t "position.dictionary.price"}:
+        span.correspondences__popup__field
+          | {{form.price}} {{Data.currency_group[form.currency_id].title}}/{{Data.dimensions_group[form.weight_dimension_id].title}}
+    .correspondences__popup__footer
+      a.btn.btn-default href="/search/map?id={{form.id}}" ng-click="Position.goTo(form.id, $event)"
+        | #{t "position.dictionary.go_to_position"} &nbsp;
+        i.icon-next

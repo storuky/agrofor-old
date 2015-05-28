@@ -1,0 +1,22 @@
+en:
+  message:
+    offer:
+      complete: Receipt of the goods is confirmed
+      created: Offer is succesfully created
+    position:
+      agree: I have confirmed my participation in this deal
+      close: I have closed your position
+      complete: I confirm sending the goods
+      completed: "I confirm {{deal_plur2[offer.trade_type]}}"
+      new_offer: "<p>Dear {{user_name}},</p> I'd like <b>{{deal_plur1[offer.trade_type]}}</b> {{offer.weight}} {{Data.dimensions_group[offer.weight_dimension_id].title}} of <b>«{{Data.options[offer.option_id].category.title_locale}}»</b> at the price of <b>{{offer.price}} {{Data.currency_group[offer.currency_id].title}}/{{Data.dimensions_group[offer.weight_dimension_id].title}}</b> according to the position <a href='/positions/{{offer.id}}'>№ {{offer.id}}</a>. I propose to discuss the terms of a deal and make it!"
+      rejected: I refuse the deal on these terms
+      withdraw: I cancel my offer
+      plur1:
+        1: "to buy from you"
+        2: "to sell to you"
+      plur2:
+        1: "receipt"
+        2: "sending"
+    notice:
+      empty: You can not send an empty message
+      sending_error: "Error when sending the message. Please, repeat the operation or try again later."

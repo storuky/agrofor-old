@@ -1,0 +1,1263 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"posi",
+				"positions"
+			],
+			[
+				"pos",
+				"positions"
+			],
+			[
+				"posit",
+				"positions"
+			],
+			[
+				"price_",
+				"price_etalon"
+			],
+			[
+				"curre",
+				"currency"
+			],
+			[
+				"firs",
+				"first_user"
+			],
+			[
+				"Posi",
+				"position"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"be",
+				"between_positions"
+			],
+			[
+				"new",
+				"new_offer"
+			],
+			[
+				"open",
+				"opened"
+			],
+			[
+				"offer",
+				"offerer_id"
+			],
+			[
+				"conversa",
+				"conversations"
+			],
+			[
+				"conver",
+				"conversation"
+			],
+			[
+				"convers",
+				"conversation"
+			],
+			[
+				"conve",
+				"conversation"
+			],
+			[
+				"messa",
+				"message"
+			],
+			[
+				"posti",
+				"positions"
+			],
+			[
+				"is",
+				"is_offer"
+			],
+			[
+				"сде",
+				"сделку"
+			],
+			[
+				"пот",
+				"подтвержденную"
+			],
+			[
+				"mes",
+				"Message"
+			],
+			[
+				"con",
+				"conversation"
+			],
+			[
+				"cove",
+				"conversation_type"
+			],
+			[
+				"un",
+				"unreadable_count"
+			],
+			[
+				"$route",
+				"$routeParams	AngularJS"
+			],
+			[
+				"cu",
+				"currency"
+			],
+			[
+				"price",
+				"price_to"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"pa",
+				"page"
+			],
+			[
+				"recip",
+				"recipient_id"
+			],
+			[
+				"crea",
+				"create_between_users"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"weigh",
+				"weight_min"
+			],
+			[
+				"weight_",
+				"weight_min"
+			],
+			[
+				"pri",
+				"price_in_currency"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"wi",
+				"weight"
+			],
+			[
+				"title",
+				"title"
+			],
+			[
+				"offe",
+				"offer_index"
+			],
+			[
+				"over",
+				"overflow_x"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS"
+			],
+			[
+				"of",
+				"offer"
+			],
+			[
+				"whe",
+				"where"
+			],
+			[
+				"Pos",
+				"position"
+			],
+			[
+				"opo",
+				"opponent"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"posito",
+				"position"
+			],
+			[
+				"position",
+				"position"
+			],
+			[
+				"impo",
+				"important"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"off",
+				"offer_id"
+			],
+			[
+				"co",
+				"conversation"
+			],
+			[
+				"ac",
+				"active_conversation"
+			],
+			[
+				"sender",
+				"sender_id"
+			],
+			[
+				"la",
+				"last_message"
+			],
+			[
+				"sear",
+				"search_preloder"
+			],
+			[
+				"map",
+				"mapPage"
+			],
+			[
+				"des",
+				"destroy"
+			],
+			[
+				"weig",
+				"weight_dimension"
+			],
+			[
+				"wei",
+				"weight_to_etalon"
+			],
+			[
+				"post",
+				"position"
+			],
+			[
+				"tra",
+				"trade_type"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"lat",
+				"latlng"
+			],
+			[
+				"ove",
+				"overflow-x"
+			],
+			[
+				"sea",
+				"search_params"
+			],
+			[
+				"opt",
+				"option_id"
+			],
+			[
+				"op",
+				"option_id"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"use",
+				"user_id"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"para",
+				"params"
+			],
+			[
+				"we",
+				"weight"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"ar",
+				"args"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"positio",
+				"position"
+			],
+			[
+				"cont",
+				"count"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"fonts",
+				"font-size"
+			],
+			[
+				"$sc",
+				"$scope	AngularJS"
+			],
+			[
+				"ran",
+				"rand"
+			],
+			[
+				"gr",
+				"group_by"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"serv",
+				"service	AngularJS"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"MARG",
+				"margin-bottom"
+			],
+			[
+				"cate",
+				"category	select_directive.js"
+			],
+			[
+				"categ",
+				"category_id	select_directive.js"
+			],
+			[
+				"mul",
+				"multiple	select_directive.js"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"$roo",
+				"$rootScope	AngularJS"
+			],
+			[
+				"paddin",
+				"padding-left"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"sc",
+				"scroll"
+			],
+			[
+				"searc",
+				"search"
+			],
+			[
+				"$rout",
+				"$routeProvider"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"category",
+				"category_id"
+			],
+			[
+				"option",
+				"option_id"
+			],
+			[
+				"se",
+				"self"
+			],
+			[
+				"optio",
+				"option_id"
+			],
+			[
+				"opti",
+				"option_id"
+			],
+			[
+				"ca",
+				"category_id"
+			],
+			[
+				"favor",
+				"favorite"
+			],
+			[
+				"fav",
+				"favorite_ids"
+			],
+			[
+				"show",
+				"showPosition"
+			],
+			[
+				"check",
+				"check_suit"
+			],
+			[
+				"positi",
+				"position"
+			],
+			[
+				"$ro",
+				"$routeParams"
+			],
+			[
+				"class",
+				"class_name"
+			],
+			[
+				"categor",
+				"category_id"
+			],
+			[
+				"sign",
+				"signOut"
+			],
+			[
+				"strnu",
+				"streetNumber"
+			],
+			[
+				"init",
+				"initialize()	map_controller.js"
+			],
+			[
+				"moa",
+				"modal_lat"
+			],
+			[
+				"modal",
+				"modal_address"
+			],
+			[
+				"countr",
+				"country	position_form_controller.js"
+			],
+			[
+				"long",
+				"long_name"
+			],
+			[
+				"res",
+				"responses"
+			],
+			[
+				"cus",
+				"cursor"
+			],
+			[
+				"rati",
+				"rating_type"
+			],
+			[
+				"pr",
+				"profile"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/assets/javascripts/app/websocket.js",
+			"settings":
+			{
+				"buffer_size": 2234,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/conversation.rb",
+			"settings":
+			{
+				"buffer_size": 2416,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/seeds.rb",
+			"settings":
+			{
+				"buffer_size": 957,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remocve",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remoce",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inat",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"jsli",
+				"JSLint"
+			],
+			[
+				"insa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/pavelkononenko/devel/agroagora",
+		"/Users/pavelkononenko/devel/agroagora/app",
+		"/Users/pavelkononenko/devel/agroagora/app/assets",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/app",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/filters",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/directives",
+		"/Users/pavelkononenko/devel/agroagora/app/controllers",
+		"/Users/pavelkononenko/devel/agroagora/app/indices",
+		"/Users/pavelkononenko/devel/agroagora/app/models",
+		"/Users/pavelkononenko/devel/agroagora/app/views",
+		"/Users/pavelkononenko/devel/agroagora/app/views/conversations",
+		"/Users/pavelkononenko/devel/agroagora/app/views/layouts",
+		"/Users/pavelkononenko/devel/agroagora/app/views/positions",
+		"/Users/pavelkononenko/devel/agroagora/app/workers",
+		"/Users/pavelkononenko/devel/agroagora/config",
+		"/Users/pavelkononenko/devel/agroagora/config/initializers",
+		"/Users/pavelkononenko/devel/agroagora/config/locales",
+		"/Users/pavelkononenko/devel/agroagora/config/locales/models",
+		"/Users/pavelkononenko/devel/agroagora/db",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate",
+		"/Users/pavelkononenko/devel/agroagora/test",
+		"/Users/pavelkononenko/devel/agroagora/test/fixtures/files"
+	],
+	"file_history":
+	[
+		"/Users/pavelkononenko/devel/agroagora/app/controllers/positions_controller.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/position_form_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/position_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/models/position.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/views/conversations/index.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/search_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150321115122_create_positions.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/controllers/offers_controller.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/controllers/conversations_controller.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/conversation.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/conversations.less",
+		"/Users/pavelkononenko/devel/agroagora/app/views/positions/index.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150419111417_create_conversations.rb",
+		"/Users/pavelkononenko/devel/agroagora/config/locales/models/option.yml",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/position_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/app/controllers/application_controller.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/map_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/config/locales/ru.yml",
+		"/Users/pavelkononenko/devel/agroagora/app/views/positions/show.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/data_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/views/layouts/application.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/indices/position_index.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/controllers/search_controller.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/positions_position.rb",
+		"/Users/pavelkononenko/devel/agroagora/Gemfile",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/search_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/app/websocket.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/conversations_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/message_service.js",
+		"/Users/pavelkononenko/devel/agroagora/config/routes.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/message.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/offer_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/profile_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/application.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/app/router.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/filters/html_filter.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/content.less",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/modals.less",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/route_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/side-bar.less",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/search.less",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/profile.less",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/theme.less",
+		"/Users/pavelkononenko/devel/agroagora/app/views/profile/index.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/user_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/views/conversations/_position.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/list_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/app/views/search/list.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150321113440_devise_create_users.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/position.less",
+		"/Users/pavelkononenko/devel/agroagora/app/controllers/settings_controller.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/views/settings/index.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/models/user.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/reputation.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150517135003_create_reputations.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/currency.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/action_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/views/modals/_confirm.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/config/initializers/redis.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/views/search/index.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/config/application.rb",
+		"/Users/pavelkononenko/devel/agroagora/config/initializers/resque.rb",
+		"/Users/pavelkononenko/devel/agroagora/config/schedule.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/directives/category.less",
+		"/Users/pavelkononenko/devel/agroagora/app/views/modals/_new_message.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/new_message_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/categories_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150419111538_create_messages.rb",
+		"/Users/pavelkononenko/devel/agroagora/config/initializers/uploader.rb",
+		"/Users/pavelkononenko/devel/agroagora/config/environments/development.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/category.rb",
+		"/Users/pavelkononenko/devel/agroagora/test/factories/users.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/views/positions/form.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/call_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/confirm_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/directives/select.less",
+		"/Users/pavelkononenko/devel/agroagora/app/views/application/_directives.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/select_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150504183259_create_templates.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/application.less",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/lib.js",
+		"/Users/pavelkononenko/devel/agroagora/test/factories/messages.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/weight_dimension.rb",
+		"/Users/pavelkononenko/devel/agroagora/lib/convert.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/seeds.rb",
+		"/Users/pavelkononenko/devel/agroagora/test/factories/templates.rb",
+		"/Users/pavelkononenko/devel/agroagora/test/factories/currencies.rb",
+		"/Users/pavelkononenko/devel/agroagora/test/factories/weight_dimensions.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150511123405_create_weights.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/models/weight.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150511110654_create_currencies.rb",
+		"/Users/pavelkononenko/devel/agroagora/test/factories/conversations.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/pick_address_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/validate_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/call_service.js",
+		"/Users/pavelkononenko/devel/agroagora/app/views/modals/_pick_address.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/directives/pick_address.less",
+		"/Users/pavelkononenko/devel/agroagora/app/views/search/map.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/models/offer.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/views/modals/_sign.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/icons.less",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150509143334_create_conversations_messages.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150509172219_create_conversations_users.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150509114831_add_position_and_offer_to_messages.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150329091507_positions_positions.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/position_show_ctrl.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/content/messages.less",
+		"/Users/pavelkononenko/devel/Новая папка 2/agroagora/app/views/layouts/application.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/controllers/profile_controller.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150418145916_create_messages.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150419104432_messages_users.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150418150009_create_blacklists.rb",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150418145657_create_messages.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/uploaders/avatar_uploader.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/views/modals/_map_position.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/lib/delete_nil.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/services/position_data_service.js",
+		"/Users/pavelkononenko/devel/agroagora/db/migrate/20150329091536_positions_users.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/views/messages/index.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/dimension_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/directives/radio_directive.js",
+		"/Users/pavelkononenko/devel/agroagora/config/thinking_sphinx.yml",
+		"/Users/pavelkononenko/devel/agroagora/log/development.searchd.log",
+		"/Users/pavelkononenko/devel/agroagora/config/events.rb",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/stylesheets/marker.less",
+		"/Users/pavelkononenko/devel/agroagora/app/views/application/_pick_address.html.slim",
+		"/Users/pavelkononenko/devel/agroagora/app/assets/javascripts/controllers/messages_ctrl.js",
+		"/Users/pavelkononenko/devel/Новая папка 2/agroagora/app/models/position.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"true",
+			"users",
+			"weight_dimension",
+			"offers",
+			"find_suitable",
+			"position",
+			"aasm_",
+			"type",
+			"val",
+			"destroy",
+			"())\n",
+			"$routeParams",
+			"searc",
+			"$location",
+			"new_offers_count",
+			"float: right",
+			"right",
+			"{{}}",
+			"Call",
+			"del",
+			"val.id",
+			"$location.path(",
+			"$location.search()",
+			".searc",
+			"$scope.topPosition",
+			"weight_dimension",
+			".btn",
+			"Data",
+			"new_offes_count",
+			"offers",
+			"Position[collection]",
+			".positions",
+			"message",
+			"current_user",
+			"show",
+			"-letter",
+			"statu",
+			"t",
+			"Position.where(id: position_ids)",
+			"time",
+			"div",
+			"Search.find_all",
+			"typ",
+			"type",
+			"$redis_currency",
+			"map",
+			"first-letter",
+			"recipient",
+			"position",
+			"between_users",
+			"with_user",
+			"currency",
+			"Position.buildInfo",
+			"marker",
+			"offers",
+			"offer",
+			"all",
+			"type",
+			"conversation",
+			"conversation.positions[0]",
+			"weight_dimension",
+			"overl",
+			".background",
+			"close",
+			"blurContent",
+			"rgba(76, 175, 80, 0.8)",
+			"weight_dimension",
+			"TRADE_TYPES_GROUP",
+			"weight_dimension",
+			"weight_dimension_id",
+			"markerDescription",
+			"weight_group",
+			"::",
+			"WEIGHT_GROUP",
+			"WEIGHT_DIMENSION",
+			"[0]",
+			"Position::DIMENSIONS_GROUP",
+			"Position::DIMENSIONS",
+			"weight_id",
+			"weight",
+			"CNY",
+			"body = ",
+			"@green",
+			"@red",
+			"b {",
+			"pickAdress",
+			"$scope",
+			"lat",
+			"map_modal",
+			"no",
+			"lighter",
+			"light",
+			"new",
+			"/fonts/circe/",
+			"16",
+			".id",
+			"id,",
+			"pos.",
+			"user_id",
+			"sender",
+			"between",
+			"integer",
+			"position_and_offer",
+			"sender",
+			"conversation",
+			"params[:position]",
+			"params[:offer]",
+			"offer",
+			"form",
+			"Search.position_info",
+			"$scope.form",
+			"active==",
+			"Offer",
+			"user",
+			"messages",
+			"conversation",
+			"correspondence",
+			"user.",
+			"self",
+			"20",
+			"icon-sign",
+			"response",
+			"PositionData",
+			"data.",
+			"user_id",
+			"$scope.positions",
+			"&&",
+			"position"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/",
+			"th.th",
+			"td.td"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/assets/javascripts/app/websocket.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								777,
+								777
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 515.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/models/conversation.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2165,
+								2165
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "db/seeds.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								884,
+								884
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai (SL).tmTheme",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MarGo-output":
+	{
+		"height": 118.0
+	},
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "new agro.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"ru",
+				"config/locales/ru.yml"
+			],
+			[
+				"lay",
+				"agroagora/app/views/layouts/application.html.slim"
+			],
+			[
+				"sideb",
+				"agroagora/app/assets/stylesheets/content/side-bar.less"
+			],
+			[
+				"side",
+				"agroagora/app/assets/stylesheets/content/side-bar.less"
+			],
+			[
+				"creatmess",
+				"agroagora/db/migrate/20150418145657_create_messages.rb"
+			],
+			[
+				"applca",
+				"agroagora/app/controllers/application_controller.rb"
+			],
+			[
+				"poles",
+				"agroagora/app/assets/stylesheets/content/position.less"
+			],
+			[
+				"modall",
+				"agroagora/app/assets/stylesheets/content/modals.less"
+			],
+			[
+				"applicjs",
+				"agroagora/app/assets/javascripts/application.js"
+			],
+			[
+				"theme",
+				"agroagora/app/assets/stylesheets/theme.less"
+			],
+			[
+				"_di",
+				"agroagora/app/views/application/_directives.html.slim"
+			],
+			[
+				"confappl",
+				"agroagora/config/application.rb"
+			],
+			[
+				"seed",
+				"agroagora/db/seeds.rb"
+			],
+			[
+				"sele",
+				"agroagora/app/assets/stylesheets/directives/select.less"
+			],
+			[
+				"catego",
+				"agroagora/test/factories/category.rb"
+			],
+			[
+				"styl",
+				"app/assets/stylesheets/app.less"
+			],
+			[
+				"them",
+				"app/assets/stylesheets/theme.less"
+			],
+			[
+				"apples",
+				"ripk/app/assets/stylesheets/app.less"
+			],
+			[
+				"appless",
+				"ripk/app/assets/stylesheets/app.less"
+			],
+			[
+				"applles",
+				"ripk/app/assets/stylesheets/application.css.less"
+			],
+			[
+				"applicless",
+				"ripk/app/assets/stylesheets/application.css.less"
+			],
+			[
+				"cours",
+				"app/assets/stylesheets/course.css.scss"
+			],
+			[
+				"flatle",
+				"app/assets/stylesheets/flaticon.css.less"
+			],
+			[
+				"appliles",
+				"app/assets/stylesheets/application.css.less"
+			],
+			[
+				"apple",
+				"app/assets/stylesheets/app.less"
+			],
+			[
+				"the",
+				"assets/stylesheets/theme.less"
+			],
+			[
+				"appjs",
+				"assets/javascripts/app.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/devel/izbirkom/izbirkom.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 306.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

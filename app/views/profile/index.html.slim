@@ -1,0 +1,105 @@
+.page
+  .profile
+    h1  = t "title.profile"
+    .profile__personal
+      h3.profile__tabs
+        a ng-class="{active: !profile.editing || !myProfile}" ng-href="{{myProfile ? '/profile/' + User.data.id : ''}}" ng-click="profile.editing = false"
+          | #{t "profile.dictionary.personal_info"}
+        a ng-show="myProfile" ng-class="{active: profile.editing && myProfile}" href="/profile/{{User.data.id}}?page=edit" ng-click="profile.editing = true"
+          | #{t "profile.dictionary.edit"}
+      .clearfix
+        .profile__personal__user-pic.pull-left
+          svg.spinner.avatar__spinner ng-show="profile.showSpinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"
+             circle.path fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"
+          img ng-src="{{User.data.avatar.url}}" height="145" width="145"
+          div ng-show="myProfile"
+            = file_field_tag 'avatar', fileread: "profile.avatarChanged"
+            = label_tag 'avatar', t('profile.dictionary.upload'), class: "btn btn-primary"
+          div ng-hide="myProfile"
+            a.btn.btn-primary ng-click="Message.showMessageModal=true; Message.user=profile.form"
+              | #{t "profile.dictionary.write"}
+        form.profile__form.pure-form.pull-left
+          h3.profile__personal__field.profile__personal__name ng-class="{empty: !User.data.fio}"
+            div ng-show="profile.editing"
+              label #{t "profile.dictionary.fio"}:
+              input ng-model="profile.form.name" type="text"
+            span ng-hide="profile.editing"
+              | {{User.data.name}}
+          h4.profile__personal__company ng-class="{empty: !User.data.company}"
+            div ng-show="profile.editing"
+              label #{t "profile.dictionary.company"}:
+              input ng-model="profile.form.company" type="text"
+            span ng-hide="profile.editing"
+              | {{User.data.company || "#{t 'profile.dictionary.private_entrepreneur'} «"+User.data.name+"»"}}
+          h4
+            a.profile__personal__address ng-click="showPickAddress()"
+              span
+                i.flaticon-location76
+                span ng-hide="profile.form.address"
+                  | {{ profile.editing ? '#{t "profile.dictionary.address_select"}' : '#{t "profile.dictionary.address_not_select"}'}}
+                span ng-show="profile.form.address"
+                  | {{(profile.form.city || '#{t("profile.dictionary.city_not_specified")}')+ ', ' + profile.form.address}}
+                i.flaticon-earth16 style="padding: 5px;"
+          div.profile__personal__field.profile__personal__info
+            span ng-hide="profile.editing"
+              | {{User.data.additional || "#{t "profile.dictionary.additional"}"}}
+            div ng-show="profile.editing"
+              label #{t "profile.dictionary.additional"}:
+              textarea ng-model="profile.form.additional" style="min-height: 115px"
+          hr ng-hide="profile.editing" style="margin: 5px 0 17px 0;"
+          h4.profile__personal__field
+            div ng-show="profile.editing"
+              label #{t "profile.dictionary.phone_number"}:
+              .phone-input ng-repeat="phone in profile.form.phone track by $index"
+                input ng-model="profile.form.phone[$index]" type="text"
+                i.icon-close ng-hide="profile.form.phone.length==1" ng-click="profile.form.phone.splice($index, 1)"
+              a.profile__add-phone ng-click="profile.form.phone.push('')" + #{t "profile.dictionary.phone_number_add"}
+            span ng-repeat="phone in User.data.phone track by $index" ng-hide="profile.editing"
+              | {{phone}}
+              span ng-show="!$last"
+                | ,&nbsp;
+          h4.profile__personal__field
+            div ng-show="profile.editing"
+              label Email:
+              input ng-model="profile.form.email" type="text"
+            a ng-href="mailto:{{User.data.email}}" ng-hide="profile.editing"
+              | {{User.data.email || "example@company.com"}}
+
+        .profile__save.pull-left ng-show="profile.editing"
+          a.btn.btn-primary.btn-lg href="/profile/{{User.data.id}}" ng-click="profile.save()"
+            | #{t "profile.dictionary.save"}
+          .profile__save__info
+            = t("profile.dictionary.agree_info", terms: "/terms", privacy: "/privacy").html_safe
+    div ng-hide="profile.editing"
+      hr
+      h1 = t "title.reputation"
+      .reputations
+        .reputations__item.clearfix ng-repeat="reputation in profile.reputations" class="{{reputation.reputation_type}}"
+          .reputations__item__right
+            label.reputations__item__date
+              | {{reputation.created_at | date:"dd MMM yyyy"}}
+            .reputations__item__position
+              .clearfix
+                label
+                  | #{t "position.dictionary.category"}:
+                span
+                  | {{Data.options[reputation.position.option_id].title_locale}}
+              .clearfix
+                label #{t "position.dictionary.weight"}:
+                span
+                  | {{reputation.position.weight}} {{Data.dimensions_group[reputation.position.weight_dimension_id].title}}
+              .clearfix
+                label #{t "position.dictionary.price"}:
+                span
+                  | {{reputation.position.price}} {{Data.currency_group[reputation.position.currency_id].title}}/{{Data.dimensions_group[reputation.position.weight_dimension_id].title}}
+              .clearfix
+                a href="/positions/{{reputation.position.id}}"
+                  | #{t "profile.dictionary.go_to_deal"}
+                  i.icon-next
+          .reputations__item__left
+            .reputations__item__title
+              | #{t "position.dictionary.comment_from"} &nbsp;
+              a ng-href="/profile/{{reputation.sender_id}}"
+                | {{reputation.sender.name}}
+            .reputations__item__body
+              | {{reputation.description}}
