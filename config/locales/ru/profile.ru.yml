@@ -8,7 +8,6 @@ ru:
       address_not_select: Адрес
       address_select: Адрес
       agree_info: 'Нажимая "Сохранить" Вы соглашаетесь с <a href="%{terms}">условиями использования</a> и <a href="%{privacy}">политикой конфиденциальности</a>.'
-      by_clicking_save: Нажимая "Сохранить" Вы соглашаетесь с <a>условиями использования</a> и <a>политикой конфиденциальности</a>.
       city_not_specified: Город не определен
       company: Компания
       company_placeholder: ООО «Компания»

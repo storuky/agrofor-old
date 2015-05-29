@@ -9,6 +9,8 @@ en:
     profile: "Profile"
     reputation: "Reputation"
     settings: "Settings"
+    terms: Terms and conditions
+    privacy: Privacy policy
 
   weight:
     ft3: ft³

@@ -11,7 +11,7 @@ html ng-app="app"
     link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet'
     link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet'
     base href="/"
-    title Агроагора
+    title Agrofor
   body ng-class="{overflow_x: $root.animInProgress}"
     .overlay ng-show="$root.blurContent"
       = render "modals/confirm"
@@ -55,11 +55,11 @@ html ng-app="app"
               a.side-bar__nav__link href="/settings" ng-signin=""
                 = t "title.settings"
             li.side-bar__nav__item
-              a.side-bar__nav__link href="/help"
+              a.side-bar__nav__link href="/help" ng-signin=""
                 = t "title.help"
           .side-bar__footer
             div
-              a href="" = t "terms"
+              a href="/terms-and-conditions" = t "terms"
             div © #{t "agrofor"}, 2015
 
     .content ng-class="{blur: $root.blurContent}"

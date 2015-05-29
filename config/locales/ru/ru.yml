@@ -9,6 +9,8 @@ ru:
     profile: "Профиль"
     reputation: "Отзывы"
     settings: "Настройки"
+    terms: Правила
+    privacy: Политика конфиденциальности
 
   weight:
     ft3: ft³

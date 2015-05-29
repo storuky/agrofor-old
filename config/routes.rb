@@ -22,6 +22,11 @@ Rails.application.routes.draw do
 
 
   scope :ajax do
+    scope :terms do
+      get '/terms' => 'terms#terms'
+      get '/privacy' => 'terms#privacy'
+    end
+
     scope :reputations do
       post '/' => "reputations#create"
     end

@@ -14,7 +14,7 @@
         .search__popup.search__popup__suit.ng-cloak scroll="" rebuld="{{Search.suitPositions.length}}" ng-show="activeSearchParams == 'suit'"
           .search__popup__suit__noresult.ng-cloak ng-hide="Search.suitPositions.length"
             .search__popup__suit__noresult__title  = t "search.dictionary.have_not_opened_position"
-            a.btn.btn-primary.btn-new_position href="/positions/new" = t "search.dictionary.create_position"
+            a.btn.btn-primary.btn-new_position ng-signin="" href="/positions/new" = t "search.dictionary.create_position"
           ul.search__popup__suit__list ng-show="Search.suitPositions.length"
             li.search__popup__suit__item ng-repeat="pos in Search.suitPositions"
               label.clearfix
