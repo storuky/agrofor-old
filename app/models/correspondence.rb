@@ -88,7 +88,7 @@ class Correspondence < ActiveRecord::Base
     def ws
       correspondence = self.as_json(include: :positions)
       correspondence["user"] = User.where(id: sender_id).first.info
-      WebsocketRails.users[recipient_id].send_message :create, {correspondence: correspondence}, :namespace => :correspondences
+      PrivatePub.publish_to "/stream/#{recipient_id}", {type: "new_correspondence", correspondence: correspondence}
     end
 
 end

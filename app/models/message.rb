@@ -24,8 +24,9 @@ class Message < ActiveRecord::Base
   private
     def message_create
       UnreadMessage.create(user_id: recipient_id, correspondence_id: correspondence_id, message_id: id)
-      WebsocketRails.users[recipient_id].send_message :new_message, {status: correspondence.status, message: self.as_json(Message::QUERY)}, :namespace => :correspondences
-      WebsocketRails.users[sender_id].send_message :new_message, {status: correspondence.status, message: self.as_json(Message::QUERY)}, :namespace => :correspondences
+      [recipient_id, sender_id].each do |user_id|
+        PrivatePub.publish_to "/stream/#{user_id}", {type: "new_message", status: correspondence.status, message: self.as_json(Message::QUERY)}
+      end
     end
 
     def message_validate

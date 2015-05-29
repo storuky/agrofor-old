@@ -18,7 +18,10 @@ gem 'unread'
 gem 'geocoder'
 gem 'i18n_data'
 gem 'yandex-translator'
-gem 'puma'
+gem 'faye'
+gem 'faye-redis'
+gem 'faye-rails'
+gem "private_pub"
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
@@ -59,7 +62,7 @@ gem 'faker'
 gem 'pg'
 gem 'redis'
 gem 'redis-rails'
-gem 'hiredis'
+# gem 'hiredis'
 gem 'easy_translate'
 # gem 'dalli'
 gem 'russian'

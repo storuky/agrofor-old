@@ -1,16 +1,33 @@
 app.run(['$rootScope', 'Offer', 'Message', 'User', '$timeout', function($rootScope, Offer, Message, User, $timeout) {
-  init();
+  if (gon.user.private_pub) init();
   function init () {
-    window.dispatcher = new WebSocketRails(window.location.hostname + "/websocket");
-    dispatcher.bind('positions.new_offer', function(data) {
-      Offer.new_offers_count = Offer.new_offers_count || 0;
-      Offer.new_offers_count += 1;
-      Offer.sendCallback(data.offer, data.position_id)
+    PrivatePub.sign(gon.user.private_pub);
 
+    PrivatePub.subscribe('/stream/'+User.data.id, function(data) {
+      switch (data.type) {
+        case 'new_offer':
+          newOfferFromStream(data);
+          break;
+        case 'new_correspondence':
+          newCorrespondenceFromStream(data);
+          break;
+        case 'new_message':
+          newMessageFromStream(data);
+          break;
+        case 'destroy_offer':
+          destroyOfferFromStream(data);
+          break;
+      }
       $rootScope.$apply();
     });
 
-    dispatcher.bind('correspondences.create', function (data) {
+    function newOfferFromStream (data) {
+      Offer.new_offers_count = Offer.new_offers_count || 0;
+      Offer.new_offers_count += 1;
+      Offer.sendCallback(data.offer, data.position_id)
+    }
+
+    function newCorrespondenceFromStream (data) {
       if (Message.correspondences) {
         var correspondence = _.find(Message.correspondences, function(conv){
           return conv.id == data.correspondence.id
@@ -20,16 +37,8 @@ app.run(['$rootScope', 'Offer', 'Message', 'User', '$timeout', function($rootSco
           Message.correspondences.unshift(data.correspondence);
         }
       }
-      $rootScope.$apply();
-    })
-
-    dispatcher.bind('positions.destroy_offer', function(data) {
-      Offer.new_offers_count -= 1;
-      Offer.withdrawCallback(data.offer_id, data.position_id, 'offers');
-      $rootScope.$apply();
-    })
-
-    dispatcher.bind('correspondences.new_message', function (data) {
+    }
+    function newMessageFromStream (data) {
       if (Message.active_correspondence) {
         if (Message.active_correspondence.id!=data.message.correspondence_id) {
           Message.update(data)
@@ -42,18 +51,23 @@ app.run(['$rootScope', 'Offer', 'Message', 'User', '$timeout', function($rootSco
       } else {
         Message.update(data)
       }
-      $rootScope.$apply();
-    })
+    }
 
-    dispatcher.bind('connection_closed', function() {
-      $timeout(function () {
-        init();
-        if (Message.active_correspondence) {
-          Message.active_correspondence.updated_at = new Date();
-        }
-        $rootScope.$apply();
-      }, 1000)
-    })
+    function destroyOfferFromStream (data) {
+      Offer.new_offers_count -= 1;
+      Offer.withdrawCallback(data.offer_id, data.position_id, 'offers');
+    }
+
+
+    // PrivatePub.subscribe('/connection_closed', function() {
+    //   $timeout(function () {
+    //     init();
+    //     if (Message.active_correspondence) {
+    //       Message.active_correspondence.updated_at = new Date();
+    //     }
+    //     $rootScope.$apply();
+    //   }, 1000)
+    // })
   }
 
 }])

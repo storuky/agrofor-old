@@ -17,9 +17,10 @@ class ApplicationController < ActionController::Base
     end
     # expires_in 5.minutes
     if current_user
-      gon.user =  current_user.info
+      gon.user = current_user.info
       gon.user[:new_messages_count] = current_user.new_messages_count
       gon.user[:new_offers_count] = current_user.new_messages_count
+      gon.user[:private_pub] = authorize_private_channel("/stream/#{current_user.id}")
     else
       gon.user = {
         :avatar => {:url => "/default-avatar.png"},
@@ -59,14 +60,31 @@ class ApplicationController < ActionController::Base
       user: I18n.t('user')
     }
 
+
     # if current_user
-    #   connection_id = Digest::SHA1.hexdigest([Time.now, rand].join)
-    #   current_user.connection_id = connection_id
-    #   current_user.save
-    #   gon.connection_id = connection_id
+      # Digest::SHA1.hexdigest([Time.now, rand].join)
     # end
 
     render file: "layouts/application"
   end
 
+  def test
+    PrivatePub.publish_to "/websocket/#{current_user.id}", :chat_message => "Hello, world!"
+  end
+
+
+  private
+    def authorize_private_channel channel
+      PrivatePub.subscription(:channel => channel).as_json
+    end
+
+    def init_chanels
+
+    end
+
+    def broadcast(channel, &block)  
+      message = {:channel => channel, :data => '---'}  
+      uri = URI.parse("http://localhost:3000/faye")  
+      Net::HTTP.post_form(uri, :message => message.to_json)  
+    end  
 end

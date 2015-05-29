@@ -49,6 +49,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       execute :touch, release_path.join('tmp/restart.txt')
     end
+    sudo "rackup private_pub.ru -s thin -E production"
   end
 
   after :publishing, 'deploy:restart'

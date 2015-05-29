@@ -20,7 +20,7 @@
 //= require angular-animate
 //= require websocket_rails/main
 //= require underscore
-// require marker
+//= require private_pub
 //= require_self
 //= require_tree .
 

@@ -309,14 +309,14 @@ class Position < ActiveRecord::Base
 
     def create_offer offer
       opponent = self.user
-      WebsocketRails.users[opponent.id].send_message :new_offer, {position_id: self.id, offer: offer.as_json}, :namespace => :positions
+      PrivatePub.publish_to "/stream/#{opponent.id}", {type: "new_offer", position_id: self.id, offer: offer.as_json}
       opponent.new_offers_count += 1
       opponent.save
     end
 
     def destroy_offer offer
       opponent = self.user
-      WebsocketRails.users[opponent.id].send_message :destroy_offer, {position_id: self.id, offer_id: offer.id}, :namespace => :positions
+      PrivatePub.publish_to "/stream/#{opponent.id}", {type: "destroy_offer", position_id: self.id, offer_id: offer.id}
       opponent.new_offers_count -= 1
       opponent.save
     end
