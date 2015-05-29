@@ -46,7 +46,7 @@ namespace :deploy do
   # desc 'Start application'
   # task :start do
   #   run  <<-CMD
-  #     cd /home/deploy/agrofor/current; bundle exec thin start -C config/thin.yml
+  #     cd /home/deploy/agrofor/current; RAILS_ENV=production bundle exec rackup private_pub.ru -s thin -E production
   #   CMD
   # end
 

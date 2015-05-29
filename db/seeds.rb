@@ -22,7 +22,7 @@ WeightDimension::DIMENSIONS.each do |weight_dimension|
 end
 
 puts "Создание пользователя"
-20.times do |i|
+100.times do |i|
   FactoryGirl.create(:user)
   puts "Пользователь #{i}:"
 end

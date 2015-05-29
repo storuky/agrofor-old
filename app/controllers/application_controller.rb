@@ -68,11 +68,6 @@ class ApplicationController < ActionController::Base
     render file: "layouts/application"
   end
 
-  def test
-     PrivatePub.publish_to "/stream/#{current_user.id}", {type: "new_offer"}
-  end
-
-
   private
     def authorize_private_channel channel
       PrivatePub.subscription(:channel => channel).as_json
