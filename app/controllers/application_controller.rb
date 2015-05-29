@@ -69,7 +69,7 @@ class ApplicationController < ActionController::Base
   end
 
   def test
-    PrivatePub.publish_to "/websocket/#{current_user.id}", :chat_message => "Hello, world!"
+     PrivatePub.publish_to "/stream/#{current_user.id}", {type: "new_offer"}
   end
 
 
