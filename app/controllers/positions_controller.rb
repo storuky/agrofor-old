@@ -78,7 +78,7 @@ class PositionsController < ApplicationController
           render json: {errors: @position.errors}, :status => 500
         end
       else
-        render json: {msg: I18n.t("position.notice.timeout")}, status: 500
+        render json: {msg: I18n.t("position.notice.timeout", 60-wait_for)}, status: 500
       end
     else
       render json: {msg: I18n.t("user.notice.not_auth")}, status: 500

@@ -20,3 +20,5 @@
 /public/uploads
 /public/assets
 /db/sphinx
+
+/config/production.sphinx.conf

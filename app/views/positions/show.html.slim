@@ -32,7 +32,7 @@
           h1 #{t "position.dictionary.its_your_position"}
         div ng-show="Search.position_info.user_id!=User.data.id && Search.position_info.status=='opened'"
           .position__suitable__label #{t "position.dictionary.select_suit_position"}:
-          .position__suitable__select ng-class="{active:suitableShow}" ng-click="toggleSuitable()"
+          .position__suitable__select ng-class="{active:suitableShow}" ng-click="toggleSuitable()" ng-signin=""
             .position__suitable__select__arrow.pull-right ng-show="Search.suitable_list.length"
               i.icon-chevron-down
             div.position__suitable__select__none ng-hide="Search.suitable_list.length"
