@@ -43,13 +43,19 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :keep_releases, 2
 
 namespace :deploy do
+  # desc 'Start application'
+  # task :start do
+  #   run  <<-CMD
+  #     cd /home/deploy/agrofor/current; bundle exec thin start -C config/thin.yml
+  #   CMD
+  # end
 
   desc 'Restart application'
   task :restart do
+    # sudo "rackup private_pub.ru -s thin -E production"
     on roles(:app), in: :sequence, wait: 5 do
       execute :touch, release_path.join('tmp/restart.txt')
     end
-    sudo "rackup private_pub.ru -s thin -E production"
   end
 
   after :publishing, 'deploy:restart'
