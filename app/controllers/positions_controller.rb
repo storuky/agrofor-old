@@ -263,7 +263,7 @@ class PositionsController < ApplicationController
       end
       render json: current_user.favorite_ids
     else
-      render json: {msg: I18n.t("not_auth"), type: "error"}, status: 500
+      render json: {msg: I18n.t("user.not_auth"), type: "error"}, status: 500
     end
   end
 
