@@ -10,20 +10,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    resource.locale = http_accept_language.compatible_language_from(I18n.available_locales)
-    if resource.locale=="ru"
-      resource.currency_id = 1
-    else
-      resource.currency_id = 2
-    end
-
     geo = Geocoder.search(request.remote_ip).first
+    
     resource.address = geo.country
     resource.city = geo.city
     resource.lng = geo.longitude
     resource.lat = geo.latitude
 
+    if if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(geo.country)
+      resource.locale = "ru"
+      resource.currency_id = 1
+    else
+      resource.locale = "en"
+      resource.currency_id = 2
+    end
+
     resource.save
+
     unless resource.persisted?
       render json: {
         msg: resource.errors.full_messages.first
