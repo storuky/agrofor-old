@@ -10,13 +10,22 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.locale
       I18n.locale = current_user.locale
     else
-      Geocoder.configure(ip_lookup: :telize)
-      geo = Geocoder.search(request.remote_ip).first
-      if ["RU", "BY", "UA", "KZ"].include? geo.data["country_code"]
+      if ["ru", "by", "ua", "kz"].include? extract_locale_from_accept_language_header
         I18n.locale = :ru
       else
         I18n.locale = :en
       end
+
+      # Geocoder.configure(ip_lookup: :telize)
+      # geo = Geocoder.search(request.remote_ip).first
+      # if geo
+      #   if ["RU", "BY", "UA", "KZ"].include? geo.data["country_code"]
+      #     I18n.locale = :ru
+      #   else
+      #     I18n.locale = :en
+      #   end
+      # else
+      # end
     end
     # expires_in 5.minutes
     if current_user
@@ -70,6 +79,10 @@ class ApplicationController < ActionController::Base
     # end
 
     render file: "layouts/application"
+  end
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
   end
 
   private

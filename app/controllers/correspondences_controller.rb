@@ -85,8 +85,10 @@ class CorrespondencesController < ApplicationController
   end
 
   def reset_count
-    correspondence = current_user.correspondences.find(params[:correspondence_id])
-    correspondence.read_all! current_user
+    if current_user
+      correspondence = current_user.correspondences.find(params[:correspondence_id])
+      correspondence.read_all! current_user
+    end
     render json: {}
   end
 
