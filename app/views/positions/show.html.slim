@@ -18,8 +18,8 @@
       = t "profile.dictionary.go_to_deal"
     spinner.position__show__spinner ng-show="Search.positionInfoInProgress"
     .clearfix ng-class="{position__show__opacity: Search.positionInfoInProgress}"
-      position-info.pull-left ng-class="{position__show__modal: $root.mapPage}" form="Search.position_info" is-position="Search.position_info.status=='completed'" ng-show="!isRate || (isRate && User.data.id==Search.position_info.deal_with[0].user_id)"
-      position-info#rate.pull-left ng-if="Search.position_info.status=='completed'" ng-class="{position__show__modal: $root.mapPage}" form="Search.position_info.deal_with[0]" is-offer="Search.position_info.status=='completed'" ng-show="!isRate || (isRate && User.data.id==Search.position_info.deal_with[0].deal_with[0].user_id)"
+      position-info.col-xs-6 ng-class="{position__show__modal: $root.mapPage}" form="Search.position_info" is-position="Search.position_info.status=='completed'" ng-show="!isRate || (isRate && User.data.id==Search.position_info.deal_with[0].user_id)"
+      position-info#rate.col-xs-6 ng-if="Search.position_info.status=='completed'" ng-class="{position__show__modal: $root.mapPage}" form="Search.position_info.deal_with[0]" is-offer="Search.position_info.status=='completed'" ng-show="!isRate || (isRate && User.data.id==Search.position_info.deal_with[0].deal_with[0].user_id)"
 
       .position__suitable.pull-left ng-if="Search.position_info.status!='completed'"
         .position__suitable__label #{t "position.dictionary.attached_images"}:
