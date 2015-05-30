@@ -10,8 +10,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    
-    if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(request.location.country)
+    resource.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    if resource.locale==:ru
       resource.currency_id = 1
       resource.locale = "ru"
     else

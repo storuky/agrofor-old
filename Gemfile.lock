@@ -146,6 +146,7 @@ GEM
     google_currency (3.2.0)
       money (~> 6.5.0)
     hiredis (0.5.2)
+    http_accept_language (2.0.5)
     http_parser.rb (0.6.0)
     httparty (0.13.5)
       json (~> 1.8)
@@ -361,6 +362,7 @@ DEPENDENCIES
   geocoder
   gon
   google_currency
+  http_accept_language
   i18n-js
   i18n_data
   jbuilder (~> 2.0)

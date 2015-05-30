@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
 
   layout :false
@@ -9,15 +10,16 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.locale
       I18n.locale = current_user.locale
     else
-      if request.location
-        if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(request.location.country)
-          I18n.locale = :ru
-        else
-          I18n.locale = :en
-        end
-      else
-        I18n.locale = :en
-      end
+      I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+      # if request.location
+      #   if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(request.location.country)
+      #     I18n.locale = :ru
+      #   else
+      #     I18n.locale = :en
+      #   end
+      # else
+      #   I18n.locale = :en
+      # end
     end
     # expires_in 5.minutes
     if current_user

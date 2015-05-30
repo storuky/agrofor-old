@@ -22,6 +22,7 @@ gem 'faye'
 gem 'faye-redis'
 gem 'faye-rails'
 gem "private_pub"
+gem 'http_accept_language'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
