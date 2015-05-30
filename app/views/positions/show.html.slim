@@ -62,4 +62,4 @@
                     | {{Data.options[suitPosition.option_id].title_locale}}
                   div
                     | {{Position.buildInfo(suitPosition)}}
-          a.position__send.btn.btn-primary.btn-lg ng-disabled="!Search.suitable_list.length"  ng-click="sendOffer()" #{t "position.dictionary.send_offer"}
+          a.position__send.btn.btn-primary.btn-lg ng-disabled="!Search.suitable_list.length || sendInProgress"  ng-click="sendOffer()" #{t "position.dictionary.send_offer"}

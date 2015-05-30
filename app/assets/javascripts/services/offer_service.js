@@ -9,9 +9,12 @@ app.service('Offer', ['Position', '$resource', '$location', 'Data', '$http', 'Ac
   Offer.query = resource.query;
   Offer.get = resource.get;
 
-  Offer.send = function (position_id, offer_id) {
+  Offer.send = function (position_id, offer_id, callback) {
     resource.send({offer_id: offer_id, position_id: position_id}, function (res) {
       $location.url('/correspondences?type=positions&id='+res.correspondence_id);
+      callback();
+    }, function () {
+      callback();
     })
   }
 

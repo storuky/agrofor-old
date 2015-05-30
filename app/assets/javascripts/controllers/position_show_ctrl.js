@@ -45,7 +45,12 @@ app.controller('PositionShow', ['$scope', '$routeParams', '$http', '$timeout', '
   }, true)
 
   $scope.sendOffer = function () {
-    Offer.send($location.search().id || $routeParams.id, $scope.suitableCurrent.id)
+    if (!$scope.sendInProgress){
+      $scope.sendInProgress = true;
+      Offer.send($location.search().id || $routeParams.id, $scope.suitableCurrent.id, function () {
+        $scope.sendInProgress = false;
+      })
+    }
   }
 
   $scope.suitableCheck = function (position, $event) {
