@@ -23,10 +23,8 @@ class SearchController < ApplicationController
   end
 
   def suitable
-    position_ids = Position.find_suitable(Position.where(id: params[:position_ids]).includes(:currency))
-    positions = Position.where(id: position_ids)
+    positions = Position.find_suitable Position.where(id: params[:position_ids])
     if params[:marker]
-      positions.map(&:marker)
       render json: positions.markers
     else
       page = params[:page] || 1
@@ -40,8 +38,7 @@ class SearchController < ApplicationController
   def by_params
     with_options = params[:position][:option_id].length>0 rescue false 
     if with_options || params[:position][:query].present?
-      position_ids = Position.find_by_params(params[:position], params[:marker])
-      positions = Position.where(id: position_ids)
+      positions = Position.find_by_params(params[:position], params[:marker])
       if params[:marker]
         render json: positions.markers
       else

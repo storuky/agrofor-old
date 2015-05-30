@@ -149,49 +149,51 @@ class Position < ActiveRecord::Base
   end
 
   def self.find_suitable positions, user_id = nil
-    offers = []
+    sql_query = []
+
     positions.each do |position|
-      dimension = position.weight_dimension_id
-
-      trade_type = TRADE_TYPES_ASOCIATION[position.trade_type]
-      weight_etalon = (position.weight_min.weight(dimension)..INF)
-      option_id = position.option_id
-      weight_min_etalon = (0.0..position.weight.weight(dimension))
-
-
-      params = {
-        trade_type: trade_type,
-        option_id: option_id,
-        weight_etalon: weight_etalon,
-        weight_min_etalon: weight_min_etalon,
+      query = %{
+        status = 'opened' AND
+        trade_type = #{TRADE_TYPES_ASOCIATION[position.trade_type]} AND
+        weight_etalon >= #{position.weight_min.weight(position.weight_dimension_id)} AND
+        option_id = #{position.option_id} AND
+        weight_min_etalon <= #{position.weight.weight(position.weight_dimension_id)} AND
       }
 
+      currency_query = []
+      Currency.all.each do |_currency|
+        price_etalon_in_currency = position.price_etalon / _currency.get_rate(position.currency.name)
+
+        currency_query << %{
+          (
+            currency_id=#{_currency.id} AND
+            (
+              (trade_type=2 AND price_etalon<#{price_etalon_in_currency}*(1+price_discount/100))
+              OR
+              (trade_type=1 AND price_etalon>#{price_etalon_in_currency}*(1-price_discount/100))
+            )
+          )
+        }
+      end
+      currency_query = " (#{currency_query.join(' OR ')}) "
+      
+      query << currency_query
+
       if user_id
-        params[:user_id] = user_id
+        query << " AND user_id = #{user_id}"
       end
 
-      _offers = Position.where(deal_with_id: nil, id: Position.search_for_ids(:with => params, :per_page => 10000)).includes(:currency)
-      _offers = _offers.select do |offer|
-        price_etalon_in_currency = position.price_etalon / offer.currency.get_rate(position.currency.name)
-
-        case position[:trade_type]
-          when 1
-            price_etalon_in_currency *= 1+offer.price_discount/100
-            offer.price_etalon.between?(0.0, price_etalon_in_currency)
-          when 2
-            price_etalon_in_currency *= 1-offer.price_discount/100
-            offer.price_etalon.between?(price_etalon_in_currency, INF)
-        end
-      end
-
-      offers += _offers.as_json
+      sql_query << query
     end
-    offers.as_json.uniq.map{|offer| offer["id"]}
+
+    sql_query = '(' + sql_query.join(" OR ") + ')'
+
+    Position.where(sql_query)
   end
 
   def self.find_by_params position, is_marker, user_id = nil
     dimension = position[:weight_dimension_id]
-    currency = Currency.find(position[:currency_id]).name
+    currency = Currency.find(position[:currency_id])
     weight_from = position[:weight_from].weight(dimension) rescue 0.0
     weight_to = position[:weight_to].weight(dimension) rescue INF
     price_from = position[:price_from].price(dimension) rescue 0.0
@@ -208,16 +210,19 @@ class Position < ActiveRecord::Base
     }.delete_if { |k, v| v.blank? }
 
     position_ids = Position.search_for_ids(position[:query], :with => params, :per_page => 10000)
-    positions = Position.where(deal_with_id: nil, id: position_ids)
     
     if position[:price_from] || position[:price_to]
-      positions = positions.includes(:currency).select do |position|
-        diff = position.currency.get_rate(currency)
-        position.price_etalon.between?(price_from/diff, price_to/diff)
+      sql_query = []
+      Currency.all.each do |_currency|
+        sql_query << %{
+          currency_id=#{_currency.id} AND
+          price_etalon BETWEEN #{price_from/_currency.get_rate(currency.name)} AND #{price_to/_currency.get_rate(currency.name)}
+        }
       end
+      sql_query = sql_query.join(" OR ")
     end
     
-    positions.map{|position| position[:id]}
+    Position.where(deal_with_id: nil, id: position_ids).where(sql_query)
   end
 
 
