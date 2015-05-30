@@ -6,7 +6,7 @@
     .correspondences__by.clearfix
       radio ng-model="Message.correspondence_type" options="[{title: '#{t 'correspondence.dictionary.positions'}', id: 'positions'}, {title: '#{t 'correspondence.dictionary.users'}', id: 'users'}]" count="Message.count"
 
-    .correspondences__items
+    .correspondences__items scroll="" rebuld="{{correspondences_count}}"
       .no_result ng-show="Message.correspondences.length==0"
         | #{t "correspondence.dictionary.have_not"}!
       .no_result ng-show="correspondences_count.length==0 && Message.correspondences.length"
