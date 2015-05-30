@@ -30,7 +30,7 @@ class Category < ActiveRecord::Base
   end
   
   def self.with_options
-    Rails.cache.fetch(I18n.locale, expite_in: 1.hour) do
+    # Rails.cache.fetch(I18n.locale, expite_in: 1.hour) do
       query = {
                 :only => [:id, :title],
                 :methods => :title_locale,
@@ -49,7 +49,7 @@ class Category < ActiveRecord::Base
               }
 
       Category.all.includes(:options).as_json(query).sort_by!{ |m| m["title_locale"] }
-    end
+    # end
   end
 
   def self.with_options_group
