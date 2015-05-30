@@ -7,13 +7,19 @@ app.directive('radio', [function(){
     scope: {
       ngModel: '=ngModel',
       options: '=options',
-      allowNull: '=allowNull'
+      allowNull: '=allowNull',
+      count: "=count"
     },
     // controller: function($scope, $element, $attrs, $transclude) {},
     // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
     // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
     template: '<span class="radio">'
-                + '<span class="radio__btn" ng-click="setActiveOption(option.id)" ng-class="{active:option.id==ngModel, red: option.color==\'red\', green: option.color==\'green\'}" ng-repeat="option in options">{{::option.title}}</span>'
+                + '<span class="radio__btn" ng-click="setActiveOption(option.id)" ng-class="{active:option.id==ngModel, red: option.color==\'red\', green: option.color==\'green\'}" ng-repeat="option in options">'
+                  +'{{::option.title}}'
+                  + '<strong ng-show="count[option.id]">'
+                    +'+{{count[option.id]}}'
+                  + '</strong>'
+                + '</span>'
              +'</span>',
     // templateUrl: '',
     replace: true,

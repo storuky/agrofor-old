@@ -24,8 +24,9 @@ class Message < ActiveRecord::Base
   private
     def message_create
       UnreadMessage.create(user_id: recipient_id, correspondence_id: correspondence_id, message_id: id)
+      message_for = correspondence.position_id ? 'positions' : 'users'
       [recipient_id, sender_id].each do |user_id|
-        PrivatePub.publish_to "/stream/#{user_id}", {type: "new_message", status: correspondence.status, message: self.as_json(Message::QUERY)}
+        PrivatePub.publish_to "/stream/#{user_id}", {type: "new_message", status: correspondence.status, message: self.as_json(Message::QUERY), message_for: message_for}
       end
     end
 

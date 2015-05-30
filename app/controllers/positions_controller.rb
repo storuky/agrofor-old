@@ -86,7 +86,7 @@ class PositionsController < ApplicationController
   end
 
   def update
-    if @position && !@position.is_offer
+    if @position && !@position.is_offer && (@position.opened? || @position.archive?)
       @position.update(position_params)
       if photos = params.permit(:photos => [])[:photos]
         photos = photos.map do |photo|

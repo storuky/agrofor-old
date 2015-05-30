@@ -47,7 +47,7 @@
           | {{::pos.price}} {{::Data.currency_group[pos.currency_id].title}}/{{::Data.dimensions_group[pos.weight_dimension_id].title}}
         td.w0
           a.btn.btn-primary.positions__table__btn ng-show="type=='offers'" href="/positions/{{pos.id}}" ng-click="Position.goTo(pos.id, $event);" = t "position.dictionary.preview"
-          a.btn.btn-primary.positions__table__btn ng-show="type=='positions'" href="/positions/{{pos.id}}/edit" ng-click="Position.goToEdit(pos.id, $event)" = t "position.dictionary.edit"
+          a.btn.btn-primary.positions__table__btn ng-show="type=='positions' && (pos.status=='opened' || pos.status=='archive')" href="/positions/{{pos.id}}/edit" ng-click="Position.goToEdit(pos.id, $event)" = t "position.dictionary.edit"
             
       tr ng-click="Position.goTo(offer.id, $event)" ng-class="{'tr-shadow':$index==0}" ng-repeat="offer in (pos.offers || pos.positions || pos.deal_with)" ng-show="isShow"
         td

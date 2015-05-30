@@ -50,6 +50,8 @@ app.service('Message', ['$http', '$timeout', 'User', function($http, $timeout, U
   Message.update = function (data) {
     if (User.data.id != data.message.sender_id) {
       Message.new_messages_count += 1;
+      Message.count[data.message_for] += 1
+
       if (Message.unreadable_count[data.message.correspondence_id]) {
         Message.unreadable_count[data.message.correspondence_id] += 1;
       } else {

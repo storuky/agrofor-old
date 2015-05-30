@@ -35,6 +35,8 @@ ru:
       error: Не выбрано ни одной категории
 
   user:
+    dictionary:
+      guest: Гость
     notice:
       add_phone: Добавьте телефон
       enter_address: Укажите ваш адрес

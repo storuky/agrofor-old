@@ -19,9 +19,11 @@ app.controller('ProfileCtrl', ['$rootScope', '$scope', '$routeParams', '$http', 
   })
 
   $http.get('/ajax/profile/'+$routeParams.id).success(function (res) {
-    $scope.User = {
-      data: res.user_data
-    };
+    if (res.user_data.id!=User.data.id){
+      $scope.User = {
+        data: res.user_data
+      };
+    }
     profile.form = res.user_data;
     profile.form.phone = profile.form.phone.length ? profile.form.phone : ['']
     profile.reputations = res.reputations;
@@ -53,7 +55,6 @@ app.controller('ProfileCtrl', ['$rootScope', '$scope', '$routeParams', '$http', 
     $scope.$watch(function () {
       return profile.avatarChanged;
     }, function (val) {
-      console.log(val)
       if (val) {
         profile.showSpinner = true;
         var fd = new FormData();

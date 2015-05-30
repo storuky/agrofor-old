@@ -45,7 +45,8 @@ class Correspondence < ActiveRecord::Base
   belongs_to :position, class_name: "Position"
   belongs_to :offer, class_name: "Position"
 
-  scope :new_messages_count, -> (user) { joins('JOIN unread_messages ON correspondences.id = unread_messages.correspondence_id').where("unread_messages.user_id = ?", user.id).group(:id).count }
+  scope :new_messages_count_for_positions, -> (user) { joins('JOIN unread_messages ON correspondences.id = unread_messages.correspondence_id').where("unread_messages.user_id = ? AND NOT position_id IS null", user.id).group(:id).count }
+  scope :new_messages_count_for_users, -> (user) { joins('JOIN unread_messages ON correspondences.id = unread_messages.correspondence_id').where("unread_messages.user_id = ? AND position_id IS null", user.id).group(:id).count }
 
   def read_all! user
     UnreadMessage.delete_all(correspondence_id: id, user_id: user.id)

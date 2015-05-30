@@ -66,11 +66,11 @@
       .pure-control-group
         label
         span ng-hide="form.status == 'archive'"
-          a.btn.btn-primary.btn-lg ng-hide="isEdit" ng-click="savePosition()" #{t 'position.dictionary.create'}
-          a.btn.btn-primary.btn-lg ng-show="isEdit" ng-click="savePosition()" #{t 'position.dictionary.save'}
+          a.btn.btn-primary.btn-lg ng-disabled="disableBtn" ng-hide="isEdit" ng-click="savePosition()" #{t 'position.dictionary.create'}
+          a.btn.btn-primary.btn-lg ng-disabled="disableBtn" ng-show="isEdit" ng-click="savePosition()" #{t 'position.dictionary.save'}
           a.text-danger.text-normal.text-lg ng-show="isEdit" ng-click="closePosition()" #{t 'position.dictionary.close_position'}
         span ng-show="form.status == 'archive' && !form.deal_with_id"
-          a.btn.btn-primary.btn-lg ng-click="restorePosition()" #{t 'position.dictionary.restore_position'}
+          a.btn.btn-primary.btn-lg ng-disabled="disableBtn" ng-click="restorePosition()" #{t 'position.dictionary.restore_position'}
 
   .pull-left
     .position__upload

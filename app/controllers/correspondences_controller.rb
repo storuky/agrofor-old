@@ -12,7 +12,10 @@ class CorrespondencesController < ApplicationController
           end
           render json: {
             correspondences: correspondences,
-            unreadable_count: current_user.correspondences.new_messages_count(current_user)
+            unreadable_count_for: {
+              positions: current_user.correspondences.new_messages_count_for_positions(current_user),
+              users: current_user.correspondences.new_messages_count_for_users(current_user)
+            }
           }
         else
           render json: []
@@ -58,7 +61,7 @@ class CorrespondencesController < ApplicationController
       document = Document.new
       document.document = params.permit(:document)[:document]
       if document.save
-        $redisCorrespondencesFile.set(params[:correspondence_id], document.id)
+        $redisCorrespondencesFile.set("#{current_user.id.to_s}-#{params[:correspondence_id]}", document.id)
         render json: {document: document, msg: I18n.t("file.upload.success")}
       else
         render json: {msg: I18n.t("file.upload.error")}, status: 500
@@ -70,7 +73,7 @@ class CorrespondencesController < ApplicationController
 
   def delete_file
     if current_user.correspondence_ids.include?(params[:correspondence_id].to_i)
-      $redisCorrespondencesFile.del(params[:correspondence_id])
+      $redisCorrespondencesFile.del("#{current_user.id.to_s}-#{params[:correspondence_id]}")
       render json: {msg: I18n.t("file.remove.sucess")}
     else
       render json: {msg: I18n.t("file.remove.error")}, status: 500
@@ -134,9 +137,9 @@ class CorrespondencesController < ApplicationController
     if correspondence.present?
       @message = correspondence.messages.new(body: params[:body], sender_id: current_user.id, recipient_id: correspondence.users.where.not(id: current_user.id).first.id)
       
-      if id = $redisCorrespondencesFile.get(params[:id])
+      if id = $redisCorrespondencesFile.get("#{current_user.id.to_s}-#{params[:id]}")
         @message.document = Document.where(id: id).first
-        $redisCorrespondencesFile.del(params[:id])
+        $redisCorrespondencesFile.del("#{current_user.id.to_s}-#{params[:id]}")
       end
 
       if @message.save

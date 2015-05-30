@@ -39,6 +39,7 @@ app.run(['$rootScope', 'Offer', 'Message', 'User', '$timeout', function($rootSco
       }
     }
     function newMessageFromStream (data) {
+      
       if (Message.active_correspondence) {
         if (Message.active_correspondence.id!=data.message.correspondence_id) {
           Message.update(data)

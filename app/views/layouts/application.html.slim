@@ -28,12 +28,12 @@ html ng-app="app"
               a.side-bar__sign__in.icon-login ng-show='!User.data.name' ng-click="$root.showSign=true;"
             a.side-bar__search href="/" ng-hide="$root.searchPage"
               i.icon-search1
-            a.side-bar__avatar
+            a.side-bar__avatar ng-href="/profile/{{User.data.id}}"
               img ng-src="{{User.data.avatar.url}}"
             .side-bar__fio.ng-cloak
-              | {{User.data.name || "Гость"}}
+              | {{User.data.name || "#{t 'user.dictionary.guest'}"}}
             .side-bar__address.ng-cloak
-              | {{User.data.city || '#{t "user.location"}'}}
+              | {{User.data.company}}
           .side-bar__new-position
             a.btn.btn-success.btn-new_position href="/positions/new" ng-signin=""
               = t "title.create_position"

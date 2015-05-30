@@ -4,7 +4,7 @@
       i.icon-search
       input type="text" placeholder="#{t("correspondence.dictionary.search")}" ng-model="correspondence_search.user.name"
     .correspondences__by.clearfix
-      radio ng-model="Message.correspondence_type" options="[{title: '#{t 'correspondence.dictionary.positions'}', id: 'positions'}, {title: '#{t 'correspondence.dictionary.users'}', id: 'users'}]"
+      radio ng-model="Message.correspondence_type" options="[{title: '#{t 'correspondence.dictionary.positions'}', id: 'positions'}, {title: '#{t 'correspondence.dictionary.users'}', id: 'users'}]" count="Message.count"
 
     .correspondences__items
       .no_result ng-show="Message.correspondences.length==0"

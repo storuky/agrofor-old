@@ -10,7 +10,19 @@ app.controller('CorrespondencesCtrl', ['$scope', '$http', '$location', '$timeout
   }, function (type) {
     $http.get('/ajax/correspondences.json?correspondence_by='+type).success(function (res) {
       Message.correspondences = res.correspondences;
-      Message.unreadable_count = res.unreadable_count;
+      var unreadable_count_for_positions = _.reduce(_.values(res.unreadable_count_for["positions"]), function (memo, num) {
+        return memo + num;
+      });
+      var unreadable_count_for_users = _.reduce(_.values(res.unreadable_count_for["users"]), function (memo, num) {
+        return memo + num;
+      });
+      Message.count = {
+        positions: unreadable_count_for_positions || 0,
+        users: unreadable_count_for_users || 0
+      }
+
+      Message.unreadable_count = res.unreadable_count_for[type]
+
       if (!_.isUndefined($location.search().id)) {
         Message.active_correspondence = findById(Message.correspondences, $location.search().id);
         if (!Message.active_correspondence) {
@@ -69,6 +81,7 @@ app.controller('CorrespondencesCtrl', ['$scope', '$http', '$location', '$timeout
         Message.resetCount();
         Message.active_correspondence.status = res.correspondence.status;
         
+        Message.count[Message.correspondence_type] -= Message.unreadable_count[n.id]
         
         if (res.document) {
           Message.attach_title = res.document.file_name;

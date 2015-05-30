@@ -31,39 +31,48 @@ app.controller('PositionFormCtrl', ['$scope', '$http', '$rootScope', '$routePara
   }
 
   $scope.savePosition = function () {
-    var formData = new FormData();
-    _.each($scope.photos, function (el, num) {
-      formData.append('photos[]', el);
-    });
+    if (!$scope.disableBtn) {
+      $scope.disableBtn = true;
+      var formData = new FormData();
+      _.each($scope.photos, function (el, num) {
+        formData.append('photos[]', el);
+      });
 
-    _.each($scope.form, function (v, k) {
-      if (k!='photos' && !!v)
-        formData.append(k, v);
-    });
+      _.each($scope.form, function (v, k) {
+        if (k!='photos' && !!v)
+          formData.append(k, v);
+      });
 
-    if ($scope.isEdit){
-      $http({
-        method: "PUT",
-        url: '/ajax/positions/'+$routeParams.id+'.json',
-        headers: {
-          'Content-Type': undefined
-        },
-        data: formData
-      }).success(function () {
-        $location.url('/positions?type=positions&status=opened')
-      })
-    } else {
-      $http({
-        method: "POST",
-        url: '/ajax/positions',
-        headers: {
-          'Content-Type': undefined
-        },
-        data: formData
-      }).success(function (res) {
-        Search.suitPositionsChecked[res.position_id] = true;
-        $location.url('/search/map');
-      })
+      if ($scope.isEdit){
+        $http({
+          method: "PUT",
+          url: '/ajax/positions/'+$routeParams.id+'.json',
+          headers: {
+            'Content-Type': undefined
+          },
+          data: formData
+        }).success(function () {
+          $location.url('/positions?type=positions&status=opened');
+          $scope.disableBtn = false;
+        }).error(function () {
+          $scope.disableBtn = false;
+        })
+      } else {
+        $http({
+          method: "POST",
+          url: '/ajax/positions',
+          headers: {
+            'Content-Type': undefined
+          },
+          data: formData
+        }).success(function (res) {
+          Search.suitPositionsChecked[res.position_id] = true;
+          $location.url('/search/map');
+          $scope.disableBtn = false;
+        }).error(function () {
+          $scope.disableBtn = false;
+        })
+      }
     }
   }
 
@@ -81,9 +90,14 @@ app.controller('PositionFormCtrl', ['$scope', '$http', '$rootScope', '$routePara
   $scope.restorePosition = function () {
     Action.confirm(gon.translation.confirm.restore_position, function (confirmed) {
       if (confirmed) {
+        $scope.disableBtn = true;
         $http({method: 'PUT', url: '/ajax/positions/restore', data: {id: $routeParams.id}})
           .success(function (res) {
             $location.url('/positions?type=positions&status=opened');
+            $scope.disableBtn = false;
+          })
+          .error(function () {
+            $scope.disableBtn = false;
           })
       }
     });
@@ -107,7 +121,6 @@ app.controller('PositionFormCtrl', ['$scope', '$http', '$rootScope', '$routePara
       })
     }
   }, true)
-
 
   $scope.deletePhoto = function (id, $index, $event) {
     if (_.isNumber(id)) {

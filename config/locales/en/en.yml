@@ -35,6 +35,8 @@ en:
       error: No category is selected 
 
   user:
+    dictionary:
+      guest: Guest
     notice:
       add_phone: Add phone
       enter_address: Enter your address
