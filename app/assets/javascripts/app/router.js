@@ -38,14 +38,6 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider', function ($r
         template: "",
         controller: 'SignCtrl'
       })
-      .when('/terms-and-conditions', {
-        templateUrl: "/ajax/terms/terms",
-        controller: 'TermsCtrl'
-      })
-      .when('/privacy-policy', {
-        templateUrl: "/ajax/terms/privacy",
-        controller: 'PrivacyCtrl'
-      })
 
   if (!gon.user.id)
     $routeProvider
@@ -68,6 +60,14 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider', function ($r
       templateUrl: '/ajax/profile',
       controller: 'ProfileCtrl as profile',
       reloadOnSearch: false
+    })
+    .when('/terms-and-conditions', {
+      templateUrl: "/ajax/terms/terms",
+      controller: 'TermsCtrl'
+    })
+    .when('/privacy-policy', {
+      templateUrl: "/ajax/terms/privacy",
+      controller: 'PrivacyCtrl'
     })
     .otherwise({
       redirectTo: '/search/map'
