@@ -3,7 +3,8 @@
     .md__head
       img.md__head__img ng-src="{{Search.position_info.user.avatar.url}}" height="20" width="20"
       .md__head__title
-        | {{Search.position_info.user.name}}
+        span.mr-5px
+          | {{Search.position_info.user.name}}
         .rating
           .rating__red
             | {{Search.position_info.user.positive_count}}
