@@ -66,9 +66,17 @@ app.service('Position', ['$resource', '$location', '$http', 'Data', 'Message', '
   }
 
   Position.complete = function (position_id, offer_id) {
+    if (Message.position.trade_type == 1){
+      var main = gon.translation.confirm.complete_position.main,
+          description = gon.translation.confirm.complete_position.description;
+    } else if (Message.position.trade_type == 2) {
+      var main = gon.translation.confirm.complete_offer.main,
+          description = gon.translation.confirm.complete_offer.description;
+    }
+    console.log(main, description)
     Action.confirm({
-      main: gon.translation.confirm.complete_position.main,
-      description: gon.translation.confirm.complete_position.description,
+      main: main,
+      description: description,
     }, function () {
       $http({method: 'PUT', url: '/ajax/positions/complete', params: {position_id: position_id, offer_id: offer_id}})
         .success(function (res) {

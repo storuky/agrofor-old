@@ -74,6 +74,9 @@ en:
     agree_position:
       main: Have you discussed all the terms of transaction in a correspondence?
       description: "Mind your attention that the confirmation of transaction can not be canceled"
+    complete_offer:
+      main: Do you really confirm sending goods?
+      description: "After confirmation, you will be able to leave a comment for further references of this user. It will determine the level of his reputation."
     complete_position:
       main: Do you really confirm receiving goods?
       description: "After confirmation, you will be able to leave a comment for further references of this user. It will determine the level of his reputation."

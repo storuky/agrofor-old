@@ -4,7 +4,6 @@ app.run(['$rootScope', 'Offer', 'Message', 'User', '$timeout', function($rootSco
     PrivatePub.sign(gon.user.private_pub);
 
     PrivatePub.subscribe('/stream/'+User.data.id, function(data) {
-      console.log(data)
       switch (data.type) {
         case 'new_offer':
           newOfferFromStream(data);
