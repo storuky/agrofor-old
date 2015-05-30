@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.locale
       I18n.locale = current_user.locale
     else
+      Geocoder.configure(ip_lookup: :telize)
       geo = Geocoder.search(request.remote_ip).first
-      if ["RU", "BY", "UA", "KZ"].include?geo.data["country_code"]
+      if ["RU", "BY", "UA", "KZ"].include? geo.data["country_code"]
         I18n.locale = :ru
       else
         I18n.locale = :en
