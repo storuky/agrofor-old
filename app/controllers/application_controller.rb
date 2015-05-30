@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
       I18n.locale = current_user.locale
     else
       geo = Geocoder.search(request.remote_ip).first
-      # if ["RU", "BY", "UA", "KZ"].include? I18nData.country_code(geo.country || "")
-      #   I18n.locale = :ru
-      # else
-      #   I18n.locale = :en
-      # end
+      if ["RU", "BY", "UA", "KZ"].include? geo.data.country_code
+        I18n.locale = :ru
+      else
+        I18n.locale = :en
+      end
     end
     # expires_in 5.minutes
     if current_user
