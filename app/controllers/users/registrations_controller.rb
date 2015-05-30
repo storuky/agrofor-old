@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.lng = geo.longitude
     resource.lat = geo.latitude
 
-    if if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(geo.country)
+    if if ["RU", "BY", "UA", "KZ"].include? I18nData.country_code(geo.country || "")
       resource.locale = "ru"
       resource.currency_id = 1
     else
