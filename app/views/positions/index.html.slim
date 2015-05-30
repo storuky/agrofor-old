@@ -21,7 +21,7 @@
       = t "position.dictionary.no_data"
 
   table.table.table-hover.positions__table
-    tbody ng-repeat="pos in Position.positions | filter:search | orderBy:'offers':true" ng-class="{active: isShow}" ng-init="isShow = pos.offers.length || pos.offers.length || pos.deal_with"
+    tbody ng-repeat="pos in Position.positions | filter:search | orderBy:'offers':true" ng-class="{active: isShow}" ng-init="isShow = pos.offers.length || pos.offers.length || pos.deal_with.length"
       tr ng-class="{'bt-none':isShow}" ng-click="isShow= (pos.offers.length || pos.positions.length || pos.deal_with) ? !isShow : false"
         td.positions__table__chevron
           i.positions__table__arrow.icon-chevron-right ng-show="!isShow"
