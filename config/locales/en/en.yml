@@ -94,7 +94,7 @@ en:
     email: Email
     fio: Full name
     forgot_password: Have you forgotten your password?
-    password: password
+    password: Password
     in:
       have_not_account: Haven't got any account?
       registration_text: "Sign up and discover a new dynamically developing market!"
