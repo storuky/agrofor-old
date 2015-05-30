@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    # geo = Geocoder.search(request.remote_ip).first
+    geo = Geocoder.search(request.remote_ip).first
     
     resource.address = geo.country
     resource.city = geo.city
