@@ -38,8 +38,8 @@ app.service('Position', ['$resource', '$location', '$http', 'Data', 'Message', '
 
   Position.withdraw = function (position_id, offer_id) {
     Action.confirm({
-      main: "Вы дейстивтельно хотите отменить сделку?",
-      description: "В любой момент Вы сможете перезаключить сделку с данным пользователем."
+      main: gon.translation.confirm.withdraw_position.main,
+      description: gon.translation.confirm.withdraw_position.description
     }, function () {
       $http({method: "DELETE", url: '/ajax/positions/withdraw', params: {position_id: position_id, offer_id: offer_id}})
         .success(function (res) {
@@ -55,8 +55,8 @@ app.service('Position', ['$resource', '$location', '$http', 'Data', 'Message', '
 
   Position.agree = function (position_id, offer_id) {
     Action.confirm({
-      main: "Вы обсудили все условия сделки в чате?",
-      description: "Обращаем ваше внимание, что подтвержденные сделки отменить нельзя."
+      main: gon.translation.confirm.agree_position.main,
+      description: gon.translation.confirm.agree_position.description
     }, function () {
       $http({method: 'PUT', url: '/ajax/positions/agree', params: {position_id: position_id, offer_id: offer_id}})
         .success(function (res) {
@@ -67,8 +67,8 @@ app.service('Position', ['$resource', '$location', '$http', 'Data', 'Message', '
 
   Position.complete = function (position_id, offer_id) {
     Action.confirm({
-      main: "Вы дейстивтельно подтверждаете получение товара?",
-      description: "После подтверждения, Вы сможете оставить отзыв данному пользователю. Просим Вас отнестись со всей ответственностью к данному действию. От репутации пользователя зависит уровень доверия к нему."
+      main: gon.translation.confirm.complete_position.main,
+      description: gon.translation.confirm.complete_position.description,
     }, function () {
       $http({method: 'PUT', url: '/ajax/positions/complete', params: {position_id: position_id, offer_id: offer_id}})
         .success(function (res) {
@@ -79,8 +79,8 @@ app.service('Position', ['$resource', '$location', '$http', 'Data', 'Message', '
 
   Position.reject = function (position_id, offer_id) {
     Action.confirm({
-      main: "Вы действительно хотите отказаться от сделки?",
-      description: "Предложение будет отклонено, о чем появится соответствующее сообщение в чате."
+      main: gon.translation.confirm.reject_position.main,
+      description: gon.translation.confirm.reject_position.description
     }, function () {
       $http({method: "DELETE", url: '/ajax/positions/reject', params: {position_id: position_id, offer_id: offer_id}})
         .success(function (res) {
@@ -98,7 +98,7 @@ app.service('Position', ['$resource', '$location', '$http', 'Data', 'Message', '
           price = position.price,
           currency = Data.currency_group[position.currency_id].title
 
-      return [weight + ' ' + weight_dimension, 'мин. ' + weight_min + ' ' + weight_dimension, price + ' ' + currency + '/' + weight_dimension].join(', ')
+      return [weight + ' ' + weight_dimension, gon.translation.dictionary.min+'. ' + weight_min + ' ' + weight_dimension, price + ' ' + currency + '/' + weight_dimension].join(', ')
     }
   }
 }])

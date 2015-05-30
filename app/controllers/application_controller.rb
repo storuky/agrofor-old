@@ -57,7 +57,8 @@ class ApplicationController < ActionController::Base
         deal_plur1: I18n.t('message.position.plur1'),
         deal_plur2: I18n.t('message.position.plur2')
       },
-      user: I18n.t('user')
+      user: I18n.t('user'),
+      dictionary: I18n.t('dictionary')
     }
 
 

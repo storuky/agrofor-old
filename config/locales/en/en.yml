@@ -70,7 +70,7 @@ en:
       description: This position will be restored in the market with the current parameters. The date of creation will be updated currently.
     withdraw_position:
       main: "Are you sure that you want to withdraw this position?"
-      description: ny moment you can send your offer again to the current user.
+      description: Any moment you can send your offer again to the current user.
     agree_position:
       main: Have you discussed all the terms of transaction in a correspondence?
       description: "Mind your attention that the confirmation of transaction can not be canceled"

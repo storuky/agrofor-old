@@ -13,8 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     
     if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(request.location.country)
       resource.currency_id = 1
+      resource.locale = "ru"
     else
       resource.currency_id = 2
+      resource.locale = "en"
     end
 
     geo = Geocoder.search(request.remote_ip).first
@@ -24,9 +26,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.lat = geo.latitude
 
     resource.save
-
-    yield resource if block_given?
-    if resource.persisted?
+    unless resource.persisted?
+      render json: {
+        msg: resource.errors.full_messages.first
+      }, status: 500
+    else
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
@@ -39,11 +43,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
         expire_data_after_sign_in!
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
-    else
-      # clean_up_passwords resource
-      render json: {
-        errors: resource.errors
-      }
     end
   end
 

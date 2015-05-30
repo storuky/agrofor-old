@@ -17,8 +17,8 @@ app.service('Offer', ['Position', '$resource', '$location', 'Data', '$http', 'Ac
 
   Offer.withdraw = function (offer_id, position_id) {
     Action.confirm({
-      main: "Вы действительно хотите отозвать предложение?",
-      description: "В любой момент вы сможете отправить его заново."
+      main: gon.translation.confirm.withdraw_position.main,
+      description: gon.translation.confirm.withdraw_position.description
     }, function () {
       resource.delete({offer_id: offer_id, position_id: position_id}, function (res) {
         Offer.withdrawCallback(position_id, offer_id, 'positions')
