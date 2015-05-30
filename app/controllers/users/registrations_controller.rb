@@ -11,12 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     resource.locale = http_accept_language.compatible_language_from(I18n.available_locales)
-    if resource.locale==:ru
+    if resource.locale=="ru"
       resource.currency_id = 1
-      resource.locale = "ru"
     else
       resource.currency_id = 2
-      resource.locale = "en"
     end
 
     geo = Geocoder.search(request.remote_ip).first
