@@ -9,8 +9,12 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.locale
       I18n.locale = current_user.locale
     else
-      if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(request.location.country)
-        I18n.locale = :ru
+      if request.location
+        if ["RU", "BY", "UA", "KZ", nil].include? I18nData.country_code(request.location.country)
+          I18n.locale = :ru
+        else
+          I18n.locale = :en
+        end
       else
         I18n.locale = :en
       end
