@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       I18n.locale = current_user.locale
     else
       geo = Geocoder.search(request.remote_ip).first
-      if ["RU", "BY", "UA", "KZ"].include? geo.data["country_code"] rescue false
+      if ["RU", "BY", "UA", "KZ"].include? geo.data["country_code"]
         I18n.locale = :ru
       else
         I18n.locale = :en
