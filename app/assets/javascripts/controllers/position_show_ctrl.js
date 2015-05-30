@@ -39,9 +39,9 @@ app.controller('PositionShow', ['$scope', '$routeParams', '$http', '$timeout', '
   $scope.$watch(function () {
     return Search.position_info.photos
   }, function (val) {
-    setTimeout(function () {
+    $timeout(function () {
       dcboxInit();
-    }, 100)
+    })
   }, true)
 
   $scope.sendOffer = function () {

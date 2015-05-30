@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     if current_user
       gon.user = current_user.info
       gon.user[:new_messages_count] = current_user.new_messages_count
-      gon.user[:new_offers_count] = current_user.new_messages_count
+      gon.user[:new_offers_count] = current_user.new_offers_count
       gon.user[:private_pub] = authorize_private_channel("/stream/#{current_user.id}")
     else
       gon.user = {
