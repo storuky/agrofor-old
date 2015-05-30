@@ -81,11 +81,12 @@ class ApplicationController < ActionController::Base
     render file: "layouts/application"
   end
 
-  def extract_locale_from_accept_language_header
-    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
-  end
 
   private
+    def extract_locale_from_accept_language_header
+      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    end
+    
     def authorize_private_channel channel
       PrivatePub.subscription(:channel => channel).as_json
     end
