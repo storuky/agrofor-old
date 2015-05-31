@@ -67,7 +67,7 @@ gem 'redis-rails'
 gem 'easy_translate'
 # gem 'dalli'
 gem 'russian'
-gem "i18n-js"
+
 gem 'slim'
 gem 'slim-rails'
 gem 'therubyracer'

@@ -9,7 +9,7 @@ app.controller('SettingsCtrl', ['$scope', '$http', 'User', function($scope, $htt
   $scope.saveSettings = function () {
     $http.post('/ajax/settings', $scope.form)
       .success(function (res) {
-        window.location.reload();
+        window.location = '';
       })
   }
 }])
