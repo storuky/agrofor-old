@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
         session[:currency] ||= Currency.where(name: "RUB").first
       else
         I18n.locale = :en
-        session[:currency] ||= Currency.where(name: "EN").first
+        session[:currency] ||= Currency.where(name: "USD").first
       end
     end
 
@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     end
 
     
-    currency_name = current_user.currency.name rescue session[:currency]["name"] rescue "USD"
+    currency_name = current_user.currency.name rescue session[:currency]["name"] rescue Currency.where(name: "USD").first
     gon.data = {
       rates: Currency.get_rates(currency_name),
       locales: [{id: "ru", title: "Русский"},{id: "en", title: "English"}],
