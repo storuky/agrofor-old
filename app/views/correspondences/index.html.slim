@@ -11,7 +11,7 @@
       .no_result ng-show="Message.correspondences.length==0"
         | #{t "correspondence.dictionary.have_not"}!
       .no_result ng-show="correspondences_count.length==0 && Message.correspondences.length"
-        | #{t "dictionary.dictionary.search_empty"}
+        | #{t "correspondence.dictionary.search_empty"}
       .correspondences__item.clearfix ng-repeat="correspondence in correspondences_count=(Message.correspondences | filter:correspondence_search | orderBy:'updated_at':true)" ng-class="{active: correspondence.id==Message.active_correspondence.id}" ng-click="Message.active_correspondence=correspondence"
         strong ng-show="Message.unreadable_count[correspondence.id]"
           | +{{Message.unreadable_count[correspondence.id]}}
