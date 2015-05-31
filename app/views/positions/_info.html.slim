@@ -9,7 +9,7 @@ script#position_show type="text/template"
     form.pure-form.pure-form-aligned
       fieldset
         .pure-control-group
-          label Статус:
+          label #{t "position.dictionary.status"}:
           span.position__show__value
             span ng-class="{green: (form.status=='opened' || form.status=='completed'), yellow: form.status=='in_process', red: form.status=='archive'}"
               | {{Data.statuses_group[form.status].title}}

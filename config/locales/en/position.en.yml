@@ -69,6 +69,7 @@ en:
       send: Send
       send_offer: Send offer
       send_comment: Create comment
+      status: Status
       template: Template
       template_placeholder: Select the template
       template_save: Save the template

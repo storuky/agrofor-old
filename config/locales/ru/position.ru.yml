@@ -70,6 +70,7 @@ ru:
       send: Отправить
       send_comment: Оставить отзыв
       send_offer: Отправить предложение
+      status: Статус
       template: Шаблон
       template_placeholder: Выберите шаблон 
       template_save: Сохранить шаблон
