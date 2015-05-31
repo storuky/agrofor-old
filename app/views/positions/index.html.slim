@@ -1,7 +1,7 @@
 .page
   .clearfix
     h1
-      span ng-show="type == 'positions'" = t "title.my_positions"
+      span ng-show="type == 'positions'" = t "title.my_positions", locale: I18n.locale
       span ng-show="type == 'offers'" = t "title.my_offers"
     .page-tabs.pull-right
       a ng-class="{active: type=='positions'}" href="/positions?type=positions&status=opened"
