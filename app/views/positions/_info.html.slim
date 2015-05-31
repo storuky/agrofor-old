@@ -68,11 +68,11 @@ script#position_show type="text/template"
             | {{form.description}}
     .position__show__comment ng-show="form.status=='completed'"
       div ng-show="form.reputation"
-        .reputations__item class="{{form.reputation.reputation_type}}"
-          .reputations__item__title.clearfix
+        .profile__positions__completed__item class="{{form.reputation.reputation_type}}"
+          .profile__positions__completed__item__title.clearfix
             span.pull-left #{t "position.dictionary.comment_from"} {{form.deal_with[0].user.name}}
             / {{Data.reputation_type_group[form.reputation.reputation_type].title}}
-          .reputations__item__body
+          .profile__positions__completed__item__body
             pre
               | {{form.reputation.description}}
       .position__show__comment__textarea ng-show="!form.reputation && User.data.id==form.deal_with[0].user_id"
