@@ -6,9 +6,13 @@ class ApplicationController < ActionController::Base
 
   layout :false
 
+  def translation
+
+  end
+
   def index
     if current_user && current_user.locale
-      I18n.locale = current_user.locale
+      I18n.locale = current_user.locale.to_sym
     else
       if ["ru", "by", "ua", "kz"].include? extract_locale_from_accept_language_header
         I18n.locale = :ru
@@ -36,7 +40,7 @@ class ApplicationController < ActionController::Base
     end
 
     
-    currency_name = current_user.currency.name rescue session[:currency]["name"] rescue Currency.where(name: "USD").first
+    currency_name = current_user.currency.name rescue session[:currency]["name"]
     gon.data = {
       rates: Currency.get_rates(currency_name),
       locales: [{id: "ru", title: "Русский"},{id: "en", title: "English"}],
