@@ -6,7 +6,8 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$http', '$location', 'plural
       $rootScope.mapPage = false;
   });
   
-  Search[Search.type || 'find_all']();
+  if (Search.type)  
+    Search[Search.type]();
 
   $scope.$watch('isShowPosition', function (val) {
     if (!val && !_.isUndefined(val))
