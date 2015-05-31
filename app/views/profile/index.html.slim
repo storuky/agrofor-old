@@ -9,8 +9,7 @@
           | #{t "profile.dictionary.edit"}
       .clearfix
         .profile__personal__user-pic.pull-left
-          svg.spinner.avatar__spinner ng-show="profile.showSpinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"
-             circle.path fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"
+          spinner.avatar__spinner ng-show="profile.showSpinner"
           img ng-src="{{User.data.avatar.url}}" height="145" width="145"
           div ng-show="myProfile"
             = file_field_tag 'avatar', fileread: "profile.avatarChanged"
