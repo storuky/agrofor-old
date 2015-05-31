@@ -254,7 +254,7 @@ class Position < ActiveRecord::Base
 
   def self.status user_id
     Position.statuses_group.keys.map do |state|
-      count = Position.where({status: state, user_id: user_id, is_offer: false}).count
+      count = Position.where({status: state, user_id: user_id}).count
 
       {
         title: I18n.t('position.status.'+state.to_s) + " (#{count})",
