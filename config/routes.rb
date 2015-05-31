@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
 
   scope :ajax do
+    scope :currencies do
+      get 'current_rates' => 'currencies#current_rates'
+    end
+
     scope :terms do
       get '/terms' => 'terms#terms'
       get '/privacy' => 'terms#privacy'

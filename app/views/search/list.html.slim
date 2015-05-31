@@ -21,6 +21,6 @@ div ng-controller="ListCtrl"
             td.w0
               | {{::pos.weight}}{{::Data.dimensions_group[pos.weight_dimension_id].title}}
             td.w0
-              | мин. {{::pos.weight_min}}{{::Data.dimensions_group[pos.weight_dimension_id].title}}
+              | #{t "dictionary.min"}. {{::pos.weight_min}}{{::Data.dimensions_group[pos.weight_dimension_id].title}}
             td.w0
-              | {{::pos.price}} {{Data.currency_group[pos.currency_id].title}}/{{::Data.dimensions_group[pos.weight_dimension_id].title}}
+              | {{::pos.price*Data.rates[pos.currency_id].rate | number:2}} {{User.data.currency.title}}/{{::Data.dimensions_group[pos.weight_dimension_id].title}}

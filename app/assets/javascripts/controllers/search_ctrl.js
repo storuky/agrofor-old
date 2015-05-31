@@ -14,8 +14,9 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$routeParams', '$timeout'
         if (Search.suitPositionsCheckedCount) {
           Search.find_suitable();
         } else {
-          if (!Search.result || !Search.result.length)
+          if ((!Search.result || !Search.result.length) && Search.type!='find_all'){
             Search.find_all()
+          }
         }
       }
     }, 300), true)

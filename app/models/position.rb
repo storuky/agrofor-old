@@ -49,6 +49,10 @@ class Position < ActiveRecord::Base
   has_and_belongs_to_many :correspondences
 
 
+  def price_in_currency
+
+  end
+
   # has_and_belongs_to_many :offers, foreign_key: 'offer_id', class_name: 'Position'
   # belongs_to :position, foreign_key: 'position_id', class_name: 'Position' 
   
@@ -108,7 +112,7 @@ class Position < ActiveRecord::Base
   validates :price_discount, :allow_blank => true, numericality: { greater_than_or_equal_to: 0 }
 
   def self.markers
-    pluck(:id, :lat, :lng, :option_id, :trade_type, :weight, :weight_dimension_id, :price, :currency_id)
+    markers = pluck(:id, :lat, :lng, :option_id, :trade_type, :weight, :weight_dimension_id, :price, :currency_id)
   end
 
   def marker

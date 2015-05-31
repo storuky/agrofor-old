@@ -17,7 +17,7 @@
                 = f.password_field :password, autofocus: "off", placeholder: t("sign.password"), "ng-model" => "sign_in_form.user.password"
               .clearfix
                 .pull-left
-                 a.btn.btn-primary.btn-lg ng-click="sign_in(sign_in_form)" = t("sign.in.title")
+                 a.btn.btn-primary.btn-lg ng-disabled="sign_in_progress" ng-click="sign_in(sign_in_form)" = t("sign.in.title")
                 .pull-right.link-align-button
                   a = t "sign.forgot_password"
         .md__sign__right
@@ -44,7 +44,7 @@
                 = f.password_field :password, autofocus: "off", placeholder: t("sign.password"), "ng-model" => "sign_up_form.user.password"
               .clearfix
                 .pull-left
-                  a.btn.btn-primary.btn-lg ng-click="sign_up(sign_up_form)" = t("sign.up.title")
+                  a.btn.btn-primary.btn-lg ng-disabled="sign_in_progress" ng-click="sign_up(sign_up_form)" = t("sign.up.title")
                 .pull-right.link-align-button
                   a href="/terms-and-conditions" = t "terms"
         .md__sign__right

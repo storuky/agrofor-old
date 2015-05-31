@@ -78,7 +78,7 @@ app.run(['$rootScope', 'Search', 'Data', 'User', 'Offer', 'Message', 'Position',
   Offer.new_offers_count = User.data.new_offers_count;
 }]);
 
-app.run(['$rootScope', '$http', function($rootScope, $http) {
+app.run(['$rootScope', '$http', '$interval', 'Data', function($rootScope, $http, $interval, Data) {
   $rootScope.sign_out = function () {
     $http({method: 'DELETE', url: '/users/sign_out'})
       .success(function () {
@@ -88,6 +88,13 @@ app.run(['$rootScope', '$http', function($rootScope, $http) {
         window.location = "/";
       })
   }
+
+  $interval(function () {
+    $http.get('/currencies/current_rates')
+      .success(function (res) {
+        Data.rates = res.rates;
+      })
+  }, 1000*60*60)
 }])
 
 app.config(['$compileProvider', function($compileProvider){

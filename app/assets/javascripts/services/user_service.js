@@ -3,8 +3,6 @@ app.service('User', ['$resource', '$http', function($resource, $http) {
 
   User.data = gon.user;
 
-
-
   var resource = $resource('/ajax/profile')
   
   User.save = function () {

@@ -1,12 +1,12 @@
-app.controller('MapCtrl', ['$scope', '$rootScope', '$http', '$location', 'pluralize', 'Data', 'Search', 'Position', function($scope, $rootScope, $http, $location, pluralize, Data, Search, Position){
+app.controller('MapCtrl', ['$scope', '$rootScope', '$http', '$location', 'pluralize', 'Data', 'Search', 'Position', 'User', function($scope, $rootScope, $http, $location, pluralize, Data, Search, Position, User){
   var maxZoom = 15;
 
   $rootScope.mapPage = true;
   $scope.$on("$destroy", function(){
       $rootScope.mapPage = false;
   });
-
-  Search[Search.type || 'find_all']();
+  
+  // Search[Search.type || 'find_all']();
 
   $scope.$watch('isShowPosition', function (val) {
     if (!val && !_.isUndefined(val))
@@ -48,7 +48,7 @@ app.controller('MapCtrl', ['$scope', '$rootScope', '$http', '$location', 'plural
   }
 
   var markerDescription = function (el) {
-    return Data.trade_types_group[el[4]].plur+" "+el[5]+Data.dimensions_group[el[6]].title+", "+el[7]+Data.currency_group[el[8]].title+"/"+Data.dimensions_group[el[6]].title
+    return Data.trade_types_group[el[4]].plur+" "+el[5]+Data.dimensions_group[el[6]].title+", "+(el[7]*Data.rates[el[8]].rate).toFixed(2)+" "+User.data.currency.title+"/"+Data.dimensions_group[el[6]].title
   }
 
   var markerTitle = function (el) {

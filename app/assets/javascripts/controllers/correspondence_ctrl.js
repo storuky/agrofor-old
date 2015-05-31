@@ -8,7 +8,10 @@ app.controller('CorrespondencesCtrl', ['$scope', '$http', '$location', '$timeout
   $scope.$watch(function () {
     return Message.correspondence_type
   }, function (type) {
+    $scope.contactsInProgress = true;
+      Message.correspondences = undefined;
     $http.get('/ajax/correspondences.json?correspondence_by='+type).success(function (res) {
+      $scope.contactsInProgress = false;
       Message.correspondences = res.correspondences;
       var unreadable_count_for_positions = _.reduce(_.values(res.unreadable_count_for["positions"]), function (memo, num) {
         return memo + num;

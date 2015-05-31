@@ -38,6 +38,12 @@ class Currency < ActiveRecord::Base
     I18n.t('currency.'+self.name)
   end
 
+  def self.get_rates name
+    rates = Currency.all.map do |currency|
+      {id: currency.id, rate: currency.get_rate(name)}
+    end
+    rates.index_by{|rate| rate[:id]}
+  end
 
   def get_rate name
     if self.name == name

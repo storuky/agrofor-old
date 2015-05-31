@@ -12,22 +12,13 @@ class ApplicationController < ActionController::Base
     else
       if ["ru", "by", "ua", "kz"].include? extract_locale_from_accept_language_header
         I18n.locale = :ru
+        session[:currency] ||= Currency.where(name: "RUB").first
       else
         I18n.locale = :en
+        session[:currency] ||= Currency.where(name: "EN").first
       end
-
-      # Geocoder.configure(ip_lookup: :telize)
-      # geo = Geocoder.search(request.remote_ip).first
-      # if geo
-      #   if ["RU", "BY", "UA", "KZ"].include? geo.data["country_code"]
-      #     I18n.locale = :ru
-      #   else
-      #     I18n.locale = :en
-      #   end
-      # else
-      # end
     end
-    # expires_in 5.minutes
+
     if current_user
       gon.user = current_user.info
       gon.user[:new_messages_count] = current_user.new_messages_count
@@ -43,8 +34,11 @@ class ApplicationController < ActionController::Base
         :phone => []
       }
     end
+
     
+    currency_name = current_user.currency.name rescue session[:currency]["name"]
     gon.data = {
+      rates: Currency.get_rates(currency_name),
       locales: [{id: "ru", title: "Русский"},{id: "en", title: "English"}],
       categories: Category.with_options.each_slice( (Category.with_options.size/4.0).round ).to_a,
       trade_types: Position.trade_types,
