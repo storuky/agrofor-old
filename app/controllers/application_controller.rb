@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     end
 
     
-    currency_name = current_user.currency.name rescue session[:currency]["name"]
+    currency_name = current_user.currency.name rescue session[:currency]["name"] rescue "USD"
     gon.data = {
       rates: Currency.get_rates(currency_name),
       locales: [{id: "ru", title: "Русский"},{id: "en", title: "English"}],
@@ -88,14 +88,4 @@ class ApplicationController < ActionController::Base
     def authorize_private_channel channel
       PrivatePub.subscription(:channel => channel).as_json
     end
-
-    def init_chanels
-
-    end
-
-    def broadcast(channel, &block)  
-      message = {:channel => channel, :data => '---'}  
-      uri = URI.parse("http://localhost:3000/faye")  
-      Net::HTTP.post_form(uri, :message => message.to_json)  
-    end  
 end
