@@ -78,11 +78,11 @@ app.run(['$rootScope', 'Search', 'Data', 'User', 'Offer', 'Message', 'Position',
   Offer.new_offers_count = User.data.new_offers_count;
 }]);
 
-// app.run(['$rootScope', '$templateCache', function($rootScope, $templateCache) {
-//    $rootScope.$on('$viewContentLoaded', function() {
-//       $templateCache.removeAll();
-//    });
-// }]);
+app.run(['$rootScope', '$templateCache', function($rootScope, $templateCache) {
+   $rootScope.$on('$viewContentLoaded', function() {
+      $templateCache.removeAll();
+   });
+}]);
 
 app.run(['$rootScope', '$http', '$interval', 'Data', function($rootScope, $http, $interval, Data) {
   $rootScope.sign_out = function () {
