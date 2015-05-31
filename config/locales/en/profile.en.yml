@@ -24,3 +24,7 @@ en:
       start_correspondence: Start correspondence
       upload: Upload
       write: Send a message
+      trade_info: Information about trading
+      completed_positions: Completed deals
+      opened_positions: Opened positions
+      no_data: No data

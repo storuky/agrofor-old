@@ -46,6 +46,8 @@ Rails.application.routes.draw do
 
     scope :profile do
       get "/" => "profile#index"
+      get "/completed" => "profile#completed"
+      get "/opened" => "profile#opened"
       put "/edit" => "profile#edit"
       post "/avatar" => "profile#avatar"
 

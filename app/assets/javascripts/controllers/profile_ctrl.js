@@ -1,10 +1,21 @@
 app.controller('ProfileCtrl', ['$rootScope', '$scope', '$routeParams', '$http', '$location', 'User', function($rootScope, $scope, $routeParams, $http, $location, User) {
   var profile = this;
   profile.editing = $location.search().page=='edit';
-  profile.type = 'open';
-  
+  profile.positions_type = 'completed';
+  profile.positions = {};
+
+  $scope.$watch(function () {
+    return profile.positions_type
+  }, function (type) {
+    profile.positions_in_progress = true;
+    $http.get('/ajax/profile/'+type+'?user_id='+$routeParams.id)
+      .success(function (res) {
+        profile.positions_in_progress = false;
+        profile.positions[type] = res.positions;
+      })
+  })
+
   $rootScope.activePage = 'profile';
-  $scope.addressModalTitle = "Местоположение пользователя";
 
   $scope.showPickAddress = function () {
     $rootScope.pickAddress = {
@@ -26,7 +37,6 @@ app.controller('ProfileCtrl', ['$rootScope', '$scope', '$routeParams', '$http', 
     }
     profile.form = res.user_data;
     profile.form.phone = profile.form.phone.length ? profile.form.phone : ['']
-    profile.reputations = res.reputations;
   })
   if ($routeParams.id==User.data.id) {
     $scope.myProfile = true;

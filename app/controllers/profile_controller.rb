@@ -26,8 +26,33 @@ class ProfileController < ApplicationController
     user = User.where(id: params[:id]).first
     if user
       render json: {
-        user_data: user.info,
-        reputations: user.reputations.includes(:position).includes(:sender).as_json(:include => {:sender => {}, :position => {include: :user} })
+        user_data: user.info
+      }
+    else
+      render json: {
+        msg: I18n.t("user.notice.not_found")
+      }, status: 500
+    end
+  end
+
+  def completed
+    user = User.where(id: params[:user_id]).first
+    if user
+      render json: {
+        positions: user.reputations.includes(:position).includes(:sender).as_json(:include => {:sender => {}, :position => {include: :user} })
+      }
+    else
+      render json: {
+        msg: I18n.t("user.notice.not_found")
+      }, status: 500
+    end
+  end
+
+  def opened
+    user = User.where(id: params[:user_id]).first
+    if user
+      render json: {
+        positions: user.positions.where(status: 'opened')
       }
     else
       render json: {
