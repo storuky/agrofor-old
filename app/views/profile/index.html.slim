@@ -80,15 +80,15 @@
       .profile__positions
         spinner ng-show="profile.positions_in_progress"
 
-        .completed ng-show="profile.positions_type == 'completed'"
+        .profile__positions__completed ng-show="profile.positions_type == 'completed'"
           .profile__positions__no-data ng-show="profile.positions.completed.length==0"
             | #{t "profile.dictionary.no_data"}
 
-          .completed__item.clearfix ng-repeat="reputation in profile.positions.completed" class="{{reputation.reputation_type}}"
-            .completed__item__right
-              label.completed__item__date
+          .profile__positions__completed__item.clearfix ng-repeat="reputation in profile.positions.completed" class="{{reputation.reputation_type}}"
+            .profile__positions__completed__item__right
+              label.profile__positions__completed__item__date
                 | {{reputation.created_at | date:"dd MMM yyyy"}}
-              .completed__item__position
+              .profile__positions__completed__item__position
                 .clearfix
                   label
                     | #{t "position.dictionary.category"}:
@@ -106,12 +106,12 @@
                   a href="/positions/{{reputation.position.id}}"
                     | #{t "profile.dictionary.go_to_deal"}
                     i.icon-next
-            .completed__item__left
-              .completed__item__title
+            .profile__positions__completed__item__left
+              .profile__positions__completed__item__title
                 | #{t "position.dictionary.comment_from"} &nbsp;
                 a ng-href="/profile/{{reputation.sender_id}}"
                   | {{reputation.sender.name}}
-              .completed__item__body
+              .profile__positions__completed__item__body
                 | {{reputation.description}}
         .profile__positions__opened ng-show="profile.positions_type == 'opened'"
           .profile__positions__no-data ng-show="profile.positions.opened.length==0"
