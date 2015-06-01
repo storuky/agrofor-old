@@ -38,7 +38,11 @@ class User < ActiveRecord::Base
   end
 
   def info
-    as_json(only: [:id, :locale, :sms_notify, :email_notify, :email, :name, :city, :address, :lat, :lng, :company, :avatar, :phone, :additional], include: {:currency => {methods: :title}}, methods: [:favorite_ids])
+    as_json(only: [:id, :locale, :sms_notify, :email_notify, :email, :name, :city, :address, :lat, :lng, :company, :avatar, :phone, :additional], include: {:currency => {methods: :title}}, methods: [:favorite_ids, :online])
+  end
+
+  def online
+    updated_at > 10.minutes.ago
   end
 
 end

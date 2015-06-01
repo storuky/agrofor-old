@@ -15,7 +15,7 @@
       .correspondences__item.clearfix ng-repeat="correspondence in correspondences_count=(Message.correspondences | filter:correspondence_search | orderBy:'updated_at':true)" ng-class="{active: correspondence.id==Message.active_correspondence.id}" ng-click="Message.active_correspondence=correspondence"
         strong ng-show="Message.unreadable_count[correspondence.id]"
           | +{{Message.unreadable_count[correspondence.id]}}
-        .correspondences__item__photo
+        .correspondences__item__photo ng-class="{online: correspondence.user.online}"
           img ng-src="{{correspondence.user.avatar.url}}"
         .correspondences__item__name.ng-cloak ng-show="Message.correspondence_type=='positions'"
           div
@@ -28,7 +28,7 @@
     .correspondences__messages__header
       .clearfix
         .pull-left
-          a.correspondences__messages__header__avatar ng-href="/profile/{{Message.active_correspondence.user.id}}"
+          a.correspondences__messages__header__avatar ng-class="{online: Message.active_correspondence.user.online}" ng-href="/profile/{{Message.active_correspondence.user.id}}"
             img ng-src="{{Message.active_correspondence.user.avatar.url}}"
           .correspondences__messages__header__info
             div
