@@ -47,9 +47,11 @@ app.controller('PositionCtrl', ['$scope', '$routeParams', '$location', '$timeout
 
 
   if (!_.isUndefined($routeParams.id)) {
+    Search.positionInfoInProgress = true;
     Position.get({id: $routeParams.id}, function (res) {
       Search.position_info = res.position_info;
       Search.suitable_list = res.suitable_list
+      Search.positionInfoInProgress = false;
     })
   }
 }])

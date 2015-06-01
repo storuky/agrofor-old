@@ -108,8 +108,10 @@ app.service('Search', ['$rootScope', '$location', '$routeParams', '$http', '$tim
   Search.update = function (res) {
     if ($rootScope.mapPage)
       Search.markers = res;
-    else
+    else {
       Search.result = res.positions;
+      Search.favorites = res.favorites;
+    }
   }
 
   Search.reset = function () {

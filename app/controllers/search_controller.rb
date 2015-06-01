@@ -15,10 +15,17 @@ class SearchController < ApplicationController
       render json: positions
     else
       page = params[:page] || 1
-      render json: {
-        positions: Position.where(status: 'opened', deal_with_id: nil).offset(25*page.to_i-25).last(25),
+      favorite_ids = current_user.favorite_ids rescue []
+      result = {
+        positions: Position.where(status: 'opened', deal_with_id: nil).where.not(id: favorite_ids).offset(25*page.to_i-25).last(25),
         page: params[:page]
       }
+
+      if page == 1
+        result[:favorites] = Position.where(id: favorite_ids)
+      end
+
+      render json: result
     end
   end
 
@@ -28,10 +35,17 @@ class SearchController < ApplicationController
       render json: positions.markers
     else
       page = params[:page] || 1
-      render json: {
-        positions: positions.offset(25*page.to_i-25).last(25),
+      favorite_ids = current_user.favorite_ids rescue []
+      result = {
+        positions: positions.where.not(id: favorite_ids).offset(25*page.to_i-25).last(25),
         page: params[:page]
       }
+
+      if page == 1
+        result[:favorites] = positions.where(id: favorite_ids)
+      end
+
+      render json: result
     end
   end
 
@@ -43,10 +57,17 @@ class SearchController < ApplicationController
         render json: positions.markers
       else
         page = params[:page] || 1
-        render json: {
-          positions: positions.offset(25*page.to_i-25).last(25),
+        favorite_ids = current_user.favorite_ids rescue []
+        result = {
+          positions: positions.where.not(id: favorite_ids).offset(25*page.to_i-25).last(25),
           page: params[:page]
         }
+
+        if page == 1
+          result[:favorites] = positions.where(id: favorite_ids)
+        end
+
+        render json: result
 
       end
     else
