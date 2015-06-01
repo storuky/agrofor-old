@@ -188,8 +188,8 @@ class PositionsController < ApplicationController
         correspondences_for_close = current_user.correspondences.where('(position_id = ? OR offer_id = ?) AND (correspondences.id != ?)', position.id, position.id, correspondence.id)
         correspondences_for_close.each do |conv|
           unless conv.stopped?
-            position, offer = Position.position_and_offer [conv.position_id, conv.offer_id], current_user.id
-            conv.messages.create(message_type: "withdraw", sender_id: current_user.id, recipient_id: offer.user_id, correspondence_id: correspondence.id)
+            conv_position, conv_offer = Position.position_and_offer [conv.position_id, conv.offer_id], current_user.id
+            conv.messages.create(message_type: "withdraw", sender_id: current_user.id, recipient_id: conv_offer.user_id, correspondence_id: correspondence.id)
             conv.stop!
             conv.position.offers.delete(conv.position)
             conv.offer.positions.delete(conv.offer)
