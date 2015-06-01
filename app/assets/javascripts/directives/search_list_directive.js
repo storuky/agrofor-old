@@ -19,6 +19,7 @@ app.directive('searchList', ['User', 'Data', 'Search', 'Position', function(User
       $scope.User = User;
       $scope.Search = Search;
       $scope.Data = Data;
+      $scope.Position = Position;
     }
   };
 }]);
