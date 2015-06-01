@@ -5,8 +5,8 @@
     dimension.search__control ng-model="Search.form.query" ng-model-dimension="Search.view" options="Data.search_view" placeholder="'#{t "search.dictionary.search_placeholder"}'"
   .search__settings
     .search__settings__item
-      .search__settings__item__active ng-show="Search.suitPositionsCheckedCount"
-        | {{Search.suitPositionsCheckedCount}}
+      .search__settings__item__active ng-show="Search.type=='find_suitable'"
+        i.icon-check
       .search__settings__item__head ng-click="setSearchPopup('suit')"
         span = t "search.dictionary.suit_for_me"
         i.icon-chevron-down.search__settings__item__caret
@@ -34,6 +34,8 @@
                   div
                     | {{Position.buildInfo(pos)}}
     .search__settings__item
+      .search__settings__item__active ng-show="Search.type=='find_by_params'"
+        i.icon-check
       .search__settings__item__head ng-click="setSearchPopup('settings')"
         span = t "search.dictionary.advanced_search"
         i.icon-chevron-down.search__settings__item__caret
