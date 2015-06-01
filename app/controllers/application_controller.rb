@@ -7,22 +7,13 @@ class ApplicationController < ActionController::Base
 
   layout :false
 
+  before_action :set_locale
+
   def translation
 
   end
 
   def index
-    if current_user && current_user.locale
-      I18n.locale = current_user.locale.to_sym
-    else
-      if ["ru", "by", "ua", "kz"].include? extract_locale_from_accept_language_header
-        I18n.locale = :ru
-        session[:currency] ||= Currency.where(name: "RUB").first
-      else
-        I18n.locale = :en
-        session[:currency] ||= Currency.where(name: "USD").first
-      end
-    end
 
     if current_user
       gon.user = current_user.info
@@ -82,6 +73,26 @@ class ApplicationController < ActionController::Base
 
 
   private
+    def set_locale
+      if current_user && current_user.locale
+        I18n.locale = current_user.locale.to_sym
+      else
+        if session[:locale] && session[:currency]
+          I18n.locale = session[:locale]
+        else
+          if ["ru", "by", "ua", "kz"].include? extract_locale_from_accept_language_header
+            session[:locale] = :ru
+            session[:currency] = Currency.where(name: "RUB").first
+            I18n.locale = :ru
+          else
+            session[:locale] = :en
+            session[:currency] = Currency.where(name: "USD").first
+            I18n.locale = :en
+          end
+        end
+      end
+    end
+
     def user_activity
       current_user.try :touch
     end
