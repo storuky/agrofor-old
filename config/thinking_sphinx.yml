@@ -8,17 +8,17 @@ development: &generic
   charset_table: "0..9, a..z, _, @, A..Z->a..z, U+410..U+42F->U+430..U+44F, U+430..U+458"
   max_matches: 100000
   # per_page: 100001
-  mysql41: 9417
+  mysql41: 9517
 
 staging:
   <<: *generic
-  mysql41: 9419
+  mysql41: 9519
 
 production:
   <<: *generic
-  mysql41: 9420
+  mysql41: 9520
 
 test:
   <<: *generic
-  mysql41: 9418
+  mysql41: 9518
   quiet_deltas: true
