@@ -74,8 +74,6 @@ app.directive('dimension', ['$rootScope', function($rootScope){
         })
 
       }
-    },
-    // link: function($scope, el, attrs, controller) {
-    // }
+    }
   };
 }]);
